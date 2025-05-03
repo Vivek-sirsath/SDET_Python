@@ -1,0 +1,418 @@
+# Comments :-
+
+# Single line comment ---> Ctrl + /  --->  #
+# Multiline comment ---> Ctrl + Shift + /  ---> """ """ OR ''' '''
+
+#######################################################################
+
+# Indentation :-
+  Indentation defines code blocks in python.
+  Statements with the same indentation belongs to the same block.
+  Use 4 spaces or Tab for indentation.
+  Indentation required for control flow, loops, functions and classes
+
+######################################################################
+
+# Identifier :-
+  Name in python is identifier
+  e.g. Variable name, class name,  method name, module name,  package name / directory name.
+
+# Rules of identifiers :-
+  1) Can have letters (UpperCase or LowerCase)
+  2) Can have numbers (0~9)
+  3) Special characters are not allowed except underscores(_)
+      Can have underscores(_)
+      First_Program_123.py  ---  Valid
+  4) Must not start with numbers
+      123_First_Program.py  ---  Invalid
+  5) Should not contain Dollar_Sign ($)
+  6) Identifiers are case-sensitive
+    x = 10
+    X = 20
+    If we call Cap X, it will only return 20.
+    If we call Small x, it will return 10.
+  7) Reserved words in python are not allowed as identifier. Because those words have specific functionality.
+
+# If name starts with underscore _
+  _name ---> private identifier
+# If namee starts with double underscore __
+  __name   --->  strongly private identifier
+# If name starts with double underscores and ends with double underscores
+  __ name __    --->  magic method
+
+######################################################################
+
+# Keywords :-
+
+- 35 keywords in Python
+- These are reserved words.
+
+'False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class',
+ 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global',
+  'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return',
+   'try', 'while', 'with', 'yield'
+
+######################################################################
+
+Variable :-
+- reserved memory location ----> Stores data or information.
+
+In Java,
+
+      int x = 10;
+      String s = "Selenium";
+
+      x is Integer data type variable.
+      s is String data type variable.
+
+      We can't store string type data in x, vice versa.
+
+In Python,
+
+      Based in data, tata type is automatically assigned.
+      This behaviour is called Dynamically Typed Programming.
+      Python is called Dynamically Typed Programming Language.
+
+e.g.
+      a = 10
+      b = 15.5
+      c = "Selenium"
+      d = 'k'
+
+# type() - Returns the data type
+
+      print(type(a))  # <class 'int'>
+      print(type(b))  # <class 'float'>
+      print(type(c))  # <class 'str'>
+      print(type(d))  # <class 'str'>
+
+# In Python every dataType has its own class.
+# A char is also having <'str'> data type.
+
+# Deleting the variable :-
+- Anything in Python if we want to deletee explicitly, anything in Pyton is an Object.
+- Anything is Object like dot(.), comma(,) . . . .
+- Unnecessary Objects are deleted automatically by Python. In other languages we've to delete manually.
+
+######################################################################
+
+del keyword :-
+- Used to delete anything
+- del permanently removes objects from Python memory.
+- We cannot recover (unbind operation) --> Name Error
+a = 30
+print(a)
+del a
+print(a)
+
+# Instead of 'del' we can use 'None' keyword
+- None --> Nothing
+- It occupy certain space. 16 to 24 bytes.
+- If we assign None to any variable, it will be eligible for garbage collection
+- a = None ---> Eligible for Garbage Collection
+- We can still access that variable.
+
+x = 56   # Here x is redefined after deleting
+print(x)
+x = None
+print(x)  # None
+#print(x + y)   # TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+
+#################################################################################################################
+
+Data Type and Data Structure :-
+
+> Data Type (Primitive Data Type) :- Represents type of data present inside variable
+Integer, Float, String, Boolean
+
+> Data Structure (Non-Primitive Data Type) :- It is a way to organize and store multiple values in a structured way.
+List, Tuples, Set,  Directories
+- Using primitive data type if we create any data type then it is data structure (Non-Primitive Data Type)
+- e.g.
+      We create array using integer data types.
+      array a [] = {4,8,3,1}     --->  Array is non-primitive data type / data structure
+
+> Abstract Data Type (ADT) :-
+  It is logical structure but that do not specify implementation details.
+  Stack (LIFO)
+  Queue (FIFO)
+  LinkedList (Efficient memory management)
+  Graph (Networks, Relationships)
+  ADTs are not built into Python but can be implemented using non-primitive data structures.
+
+x = 10  # Integer - int
+y = 20.5   # Float - float
+s = "Hello"   # String - str
+c = 'A'    # Character as String - str
+b = True  # Boolean - bool
+xx = "12345"  # Numeric String - str
+yy = [1,2,3,4,5]  # list  (non-primitive data structure)
+zz = (1,2,3,4,5)  # tuple  (non-primitive data structure)
+
+#################################################################################################################
+
+# DataTypes by indently.io (YouTube)
+number : int =  10
+decimal : float = 2.5
+text : str = "Hello, World"
+active : bool = False or True
+
+names : list = ["Bob", "Anna", "John"]  # --> mutable, Duplicates allowed
+coordinates : tuple = (1.5,2.5)  # --> immutable
+unique : set = {2,5,7,6}  # --> Duplicates not allowed
+data : dict = {'name' : 'Bob', 'age' : 20}  # --> stores data with key-value pairs.
+
+print("=============================================================================")
+
+# Defining variables using Type annotation
+
+name = "Bob"   # Allowed, No need to specify string data type
+age = 'Eleven'  # Editor not giving any warning, Wrong data type inserted
+
+# Editor can give warning by specifying data types with declaration
+# age: int = 'Eleven'  # --> Here editor is giving warning
+AGE: int = 13   # --> By this way we can not insert wrong data by mistake.
+
+print("=============================================================================")
+
+# Creating Constants
+
+from typing import Final
+
+VERSION: Final[str] = '1.0.13'  # --> Correct way to define constants.
+PI: Final[float] = 3.14   # --> Correct way to define constants.
+
+# We can still change the values of constants but editor will give the warnings, if we define as above.
+PI = 2.20   # WARNING - 'PI' is 'Final' and could not be reassigned
+
+print("=============================================================================")
+
+# How we can create reusable code using function?
+
+from datetime import datetime
+
+# print("This is the current date and time:")
+# print(datetime.now())
+#
+# print("This is the current date time:")
+# print(datetime.now())
+
+# To print again we have to copy again. Also, the statement can be changed everytime.
+# To avoid this, we can use function.
+# In Python function can be defined using 'def'
+
+def show_datetime() -> None :
+    print("This is the current date and time:")
+    print(datetime.now())
+
+show_datetime()
+show_datetime()
+show_datetime()   # Multiple times we can use function
+
+print("=============================================================================")
+
+# Parameterized function
+def greet(surname: str) -> None:
+    print(f"Ciao, {surname}!")
+
+    # We can use single quotes also ('') # Replace 'Hello' by 'Ciao'
+    # Reflect the changes at all places.
+
+greet("Shirsath")
+greet("Patil")
+
+# Instead of 'Hello', we can change to 'Ciao'
+
+print("=============================================================================")
+
+# Functions can return some data
+def add(x: float, y: float) -> float:
+    return x + y
+
+print(add(1,2))  # 3
+
+print("=============================================================================")
+
+# Classes and Objects
+# Car is class and volvo, bmw are objects of class
+
+class Car:
+    def __init__(self, color: str, horsepower: int) -> None:
+        self.color = color
+        self.horsepower = horsepower  # self refers to instance of class
+
+volvo: Car = Car("red", 200)  # This is Object of a Class, volvo is name of object
+print(volvo.color)
+print(volvo.horsepower)
+
+bmw: Car = Car("blue", 240)
+print(bmw.color , bmw.horsepower)
+
+print("=============================================================================")
+
+# Methods
+class Car:
+    def __init__(self, brand: str , hp: int):
+        self.brand = brand
+        self.hp = hp
+
+    def drive(self) -> None:
+        print(f'{self.brand} is driving!')
+
+    def get_info(self, var: int) -> None:
+        print(f'{self.brand} with {self.hp} hp')
+
+audi: Car = Car('audi', 200)
+audi.drive()  # audi is driving!
+audi.get_info(30)  # audi with 200 hp
+
+# We can create multiple instances of Car class
+ford: Car = Car('ford', 145)
+ford.drive()
+ford.get_info(50)
+
+
+
+
+
+=================================================================================================================
+
+
+
+                                                         Data Structure
+                                                               |
+                             ---------------------------------------------------------------------------
+                            |                                                                          |
+                        Primitive                                                                Non-Primitive
+                            |                                                                          |
+        -----------------------------------------                           -------------------------------------------------------
+        |           |             |             |                          |                                                      |
+    Integer       Float         String       Boolean                    Built-In                                               User Defined
+                                                                           |                                                       |
+                                                          ------------------------------------                        ------------------------
+                                                          |           |          |           |                        |            |          |
+                                                         Set         List      Tuple     Dictionary               LinkedList    HashMap      Set
+                                                                      |
+                                                    ---------------------------------
+                                                    |                               |
+                                                  Linear                        Non-Linear
+                                                    |                               |
+                                           -----------------             ---------------------
+                                           |               |             |                   |
+                                         Stack           Queue        Graph                Trees
+
+
+######################################################################################################################################################
+
+                                                       Data Types
+                                                            |
+         ------------------------------------------------------------------------------------------------------------------
+         |                |                    |                   |                |                  |                  |
+   Numeric Type       Sequence Type        Mapping Type          Boolean          Set Type         Binary Type         None Type
+      - int            - str               - dict              - bool            - set             - bytes            - None
+      - float          - list                                                    - frozenset       - bytearray
+      - complex no.    - tuple                                                                     - memory view
+
+
+######################################################################################################################################################
+
+Reading the dynamic data from user / keyboard
+# Using input() function   --->   Data Type using input function is by default string.
+
+a = input("Enter data = ")
+print(a)
+print(type(a))   # <class 'str'>
+
+If we enter data 10. We think its integer but its string.
+If we enter any data, by default its read as and saved as string.
+Internally its converted to String.
+
+######################################################################################################################################################
+
+Type casting :-
+- Converting from one data type to another data type
+- For this, different functions are available.
+  int(), float(), complex(), bool(), str()
+
+- If we want to convert str to int, compulsory str should contain only integral value and should be specified in base-10.
+
+######################################################################################################################################################
+
+Escape Characters :-
+- In String literals we can use escape characters to associate a special meaning.
+e.g.
+     \n --> New line
+     \t --> Horizontal tab
+     \r --> Carriage return
+     \b --> Back space
+     \f --> Form feed
+     \V --> Vertical tab
+     \' --> Single quote
+     \" --> Double quote
+     \\ --> ack slash symbol
+
+
+# Constants :-
+
+Python does not have a built-in concept of constants.
+By convention, uppercase characters are used for variables that should not change, but their values can still be modified in Python.
+
+       PI = 3.14
+
+######################################################################################################################################################
+
+Installation of Packages or Libraries :-
+- Selenium, Pandas are packages
+
+# To install single package :-
+pip (Python Package Installer)
+
+     pip install package_name
+ e.g.
+     pip install pandas
+
+# To install multiple packages :-
+- We use it at project level
+
+     pip install -r requirements.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

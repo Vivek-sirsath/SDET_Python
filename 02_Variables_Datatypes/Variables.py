@@ -1,0 +1,62 @@
+a = 10
+b = 15.5
+c = "Selenium"
+d = 'k'
+
+# type() - Returns the data type
+print(a) # 10
+print(b) # 10.5
+
+print(type(a))  # <class 'int'>
+print(type(b))  # <class 'float'>
+print(type(c))  # <class 'str'>
+print(type(d))  # <class 'str'>
+
+# In Python every dataType has its own class.
+
+p = q = 100
+
+print(p)  # 100
+print(q)  # 100
+
+a,b = 5,10 # a and b redefined
+print(a)
+print(b)
+
+# 1st way :-
+# Swapping data using + and - operator
+a = a+b   # 5+10=15
+b = a-b   # 15-10=5
+a = a-b   # 15-5=10
+print(a)
+print(b)
+# 2nd Way :-
+# Swapping data using * and // operator
+a = a*b
+b = a//b
+a = a//b
+print(a)
+print(b)
+
+################################################################
+# del Keyword :-
+x = 30
+y = 12
+print(x)
+del x
+#print(x)   # NameError: name 'x' is not defined
+
+# Instead of 'del' we can use 'None' keyword
+x = 56   # Here x is redefined after deleting
+print(x)
+x = None
+print(x)  # None
+#print(x + y)   # TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+
+
+
+
+
+
+
+
