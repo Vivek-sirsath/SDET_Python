@@ -1,0 +1,209 @@
+# Control flow / Execution Flow in Python
+
+- Describes the order in which the statements needs to be executed.
+- There is no switch statement in Python.
+
+Types of Statements
+-------------------
+1) Conditional Statements
+2) Iterative Statements
+3) Transfer Statements
+
+
+                                 Control / Execution Flow Statements Types
+                                                     |
+                  -----------------------------------------------------------------------
+                  |                                  |                                  |
+       Conditional Statements               Transfer Statements                Iterative Statements
+
+          1) if                                 1) break                           1) for
+          2) if-else                            2) continue                        2) while
+          3) if-elif-else                       3) pass
+          4) nested if-else
+
+
+- We use logical expressions in these statements
+# Equals                   :   a == b
+# Not Equals               :   a != b
+# Less Than                :   a < b
+# Less Than or Equal To    :   a <= b
+# Greater Than             :   a > b
+# Greater Than or Equal To :   a >= b
+
+=====================================================================================================================
+
+Conditional Statements :-
+
+1) if statement
+   ------------
+Syntax :
+
+   if Condition :
+       Body
+
+# If condition TRUE control go inside body.
+# If condition FALSE control will not go inside body, execution skip and No Output in console.
+
+=  ---> Assignment
+== ---> Comparison
+
+2) if-else statement
+   -----------------
+
+Syntax :
+
+   if Condition :
+       Body 1
+   else:
+       Body 2
+
+3) if-elif-else statement
+   ----------------------
+
+- If none of the condition matches, the default block will execute.
+
+Syntax :
+
+   if Condition :
+       Body 1
+   elif:
+       Body 2
+   elif:
+       Body 3
+   else:
+       Default Body
+
+
+
+4) nested if-else statement
+   ------------------------
+   if Condition :
+        if condition:
+           Body 2
+        else :
+           Body 3
+   elif condition :
+           Body
+   else :
+           Body
+
+
+# NOTE: There is no switch statement in Python.
+
+=====================================================================================================================
+
+Iterative Statements
+--------------------
+
+- If we want to execute some statements multiple times then we use Iterative Statements.
+
+1) While loop
+   ----------
+If we want to execute the group of statements multiple times until the condition becomes false. Then we use While Loop.
+
+It contains -
+Initialization
+Condition
+Increment / Decrement
+e.g.
+
+i = 1  # Initialization
+while i<=5 :  # Condition
+   print(i)
+   i = i+1  # Increment
+
+=====================================================================================================================
+
+Range Function
+---------------
+
+- for loop with range functions ---> Powerful combination
+- Range functions - Generate sequence of numbers from start to end.
+
+range(stop)  --->  form 1
+range(start, stop)  --->  form 2 (Mostly used)
+range([start], stop, [step])  --->  form 3 (Mostly used)
+
+e.g.
+    range(100,200)  --->  101,102,103......199
+
+step --> It is a difference between each number in sequence
+- By default, step is +ve and 1
+
+step --> +ve --> Forward Direction (L - R) --> Will stop at position (end-1) or (stop-1)
+step --> -ve --> Backward Direction (R - L) --> Will stop at position (end+1) or (stop+1)
+e.g.
+    range(100,200) --> Default step 1 and +ve (No need to specify step)
+    range(200,100,-1) --> 200,199,198,197.....101
+- range function --> returns range data type. (Object)
+- range data types consists of sequence of numbers.
+- They are immutable (Not modifiable).
+
+
+For Loop
+--------
+
+- We use for loop if we want to execute some action code for every element in the sequence. (It may be String or Collection)
+- while loop --> Execution of group of statements --> Based on condition (Until condition becomes FALSE)
+- for loop --> Execution of group of statements --> Uses every element in the sequence of the range.
+
+Syntax:
+
+     for each_element_in_sequence :
+           Body
+
+
+Nested For Loop
+---------------
+
+for x in range(1,6):
+    for y in range(1,6):
+        print(f"{x} x {y} = {x*y}", end ="\t")
+    print()
+
+=====================================================================================================================
+
+3) Transfer Statements
+   -------------------
+  break
+  continue
+  pass
+
+
+break --> We can use break statement inside loops to  stop the loop based on some condition.
+continue --> We can use continue statement to skip the current iteration and continue the
+             next iteration based on some condition.
+pass --> empty statement
+         won't do anything
+         pass is a keyword
+
+=======================================================
+
+# Loop with else block
+  - Inside the loop execution, if break statement can not executed, then only else part will execute.
+  - else means loop without break.
+
+
+# IMPORTANT :
+  ---------
+1. Any statement present before 'break' or 'continue' keyword --> They all execute.
+2. After 'break' no statements will execute.
+3. After 'continue' else block will execute.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

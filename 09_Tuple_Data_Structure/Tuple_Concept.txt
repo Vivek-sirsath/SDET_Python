@@ -1,0 +1,214 @@
+# Tuple Data Structure :
+  --------------------
+- Tuple is same as List
+- Tuple is a group of individual objects as a single entity.
+  # Elements enclosed inside parenthesis () separated by comma (,)
+  # Parenthesis is optional. But in List_Data_Structure, [] is mandatory.
+    e.g. 10, ==> Tuple   //   "Vivek", ==> Tuple
+  # Insertion order is preserved.
+  # Duplicates are allowed.
+  # Heterogeneous objects are allowed.
+  # Not Dynamic - Can not increase or decrease the size (Can not add or remove content).
+  # Immutable - Can not change the content once defined.
+  # Tuple is read only version of List.
+  # Supports both +ve or -ve indexes.
+
+# CREATION OF TUPLE
+  -----------------
+
+t = ()  # Empty tuple
+print(t)  # ()
+print(type(t))  # <class 'tuple'>
+
+print("===================================================")
+
+t = (10)   # Single valued tuple
+print(t)  # 10
+print(type(t))  # <class 'int'>
+
+print("===================================================")
+
+# t = (10,)
+t = 10,   # Single valued tuple
+print(t)  # (10,)
+print(type(t))  # <class 'tuple'>
+print("===================================================")
+
+t = "Vivek",   # Single valued tuple
+print(t)  # ('Vivek',)
+print(type(t))  # <class 'tuple'>
+
+print("===================================================")
+
+# t = (5,12.7,"Welcome",True,'C',10+50j)  # elements in advance
+t = 5,12.7,"Welcome",True,'C',10+50j
+print(t)  # (5, 12.7, 'Welcome', True, 'C', (10+50j))
+print(type(t))  # <class 'tuple'>
+
+print("===================================================")
+
+t = range(11)
+print(t)  # range(0, 11)
+print(type(t))  # <class 'range'>
+
+print("===================================================")
+
+t = tuple(range(11))  # Type Casting of 2 classes (range + tuple)
+print(t)  # (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+print(type(t))  # <class 'tuple'>
+
+===========================================================================================
+
+ACCESS TUPLE
+------------
+1) By index
+2) By slice operator
+
+t = (10,20,30,40,50,60,70,80,90,100)
+
+# 1) By index
+
+print(t[0])  # 10
+print(t[-3])  # 80
+# print(t[-10])  # IndexError: tuple index out of range
+
+# 2) By slice operator [:]
+print(t[1:4])  # (20, 30, 40)
+print(t[1:20:2])  # (20, 40, 60, 80, 100)  - Slice operator won't raise IndexError
+print(t[::-1])  # (100, 90, 80, 70, 60, 50, 40, 30, 20, 10)  -  In reverse order
+print(t[-2:-7:-1])  # (90, 80, 70, 60, 50)  -  In reverse order
+
+# Tuple is Immutable
+# t[0] = 777      # TypeError: 'tuple' object does not support item assignment
+
+print("================= OPERATORS : OPERATIONS ON THE TUPLE ===================")
+
+# 1) Concatenation Operator (+)
+t1 = (10,20,30)
+t2 = (40,50,60)
+print("Tuple Concatenation")
+print(t1 + t2)  # (10, 20, 30, 40, 50, 60)
+
+# 2) Repetition Operator / Multiplication (*)
+print("Repetition Operator")
+print(t1*3)  # (10, 20, 30, 10, 20, 30, 10, 20, 30)
+
+# 3) Membership Operator (in, not in)
+print(40 in t2)  # True
+print(80 in t1)  # False
+print('k' in t1)  # False
+print(50 not in t1)  # True
+
+=======================================================================================
+
+print("================= FUNCTIONS ON TUPLE ===================")
+
+"""
+Functions on Tuple :
+ As tuple is immutable
+ These functions are NOT APPLICABLE on Tuple
+  --> append()
+      insert()
+      remove()
+      pop()
+      extend()
+
+APPLICABLE FUNCTIONS on Tuple
+  --> len()
+      count()
+      index()
+      sorted()
+      min()
+      max()
+"""
+
+tuple_1 = (10,20,30,20,50,40,20,60,70)
+print(len(tuple_1))  # 9
+print(tuple_1.count(20))  # 3
+print(tuple_1.index(40))  # 5
+print(tuple_1.index(20))  # 1 - First occurrence
+# print(tuple_1.index(100))  # ValueError: tuple.index(x): x not in tuple
+print(sorted(tuple_1))  # [10, 20, 20, 20, 30, 40, 50, 60, 70]
+print(sorted(tuple_1,reverse=True))  # [70, 60, 50, 40, 30, 20, 20, 20, 10]
+print(max(tuple_1))  # 70
+print(min(tuple_1))  # 10
+
+
+=======================================================================================
+
+TUPLE PACKING AND UNPACKING
+---------------------------
+
+Tuple packing is the process of combining multiple values in a single tuple in a single statement.
+Tuple unpacking is the process of assigning the values from a tuple to multiple variables in a single statement.
+
+Tuple unpacking is the reverse process of Tuple packing.
+# No of variables must match the no of values, otherwise 'ValueError' will occur.
+
+# Tuple Packing :
+print("================= TUPLE PACKING===================")
+a = 10
+b = 20
+t = a,b   # --> Tuple Packing
+print(t)  # (10, 20)
+
+# Tuple Unpacking :
+print("================= TUPLE UNPACKING===================")
+t = (50,60,70)
+# a,b,c,d = t  # ValueError: not enough values to unpack (expected 4, got 3)
+# No of variables must match the no of values, otherwise 'ValueError' will occur.
+a,b,c = t
+print(a)  # 50
+print(a,b,c)  # 50 60 70
+
+=======================================================================================
+
+TUPLE COMPREHENSION
+-------------------
+
+- The process of creating data structures in easy and compact way is called comprehension.
+
+Not supported in Python
+
+SYNTAX :
+          (expression for item in sequence if condition)  -->  generator object
+          
+
+=======================================================================================
+
+                LIST                               TUPLE
+               Mutable                           Immutable
+      Insertion Order Preserved            Insertion Order Preserved
+          Indexing possible                   Indexing possible
+         Duplicates Allowed                  Duplicates Allowed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

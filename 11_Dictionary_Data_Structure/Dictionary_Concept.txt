@@ -1,0 +1,243 @@
+DICTIONARY DATA STRUCTURE
+-------------------------
+
+LIST, TUPLE , SET --> Represent individual objects as a single unit.
+DICTIONARY --> Key-Value pair individual objects.
+
+- Duplicate keys not allowed. Keys are unique in Dictionary.
+- Duplicate values allowed
+- Heterogeneous objects are allowed
+- Insertion order is preserved
+- Mutable (Can modify content)
+- Indexing and slicing not allowed
+- Key is the entry point in the Dictionary. To access the data Key is important.
+
+#============================================================================================
+
+# CREATING DICTIONARY
+  -------------------
+
+# d = {}
+d = dict()  # empty dict
+
+print(d)  # {}
+print(type(d))  # <class 'dict'>
+
+print("==================================================")
+
+# 1st Way to create dictionary
+
+d[100] = 'Steve'
+d[200] = 'Eva'
+d[300] = 'Rosalyn'
+d[200] = 'Hana'
+d[400] = 'Steve'
+
+print(d)  # {100: 'Steve', 200: 'Hana', 300: 'Rosalyn', 400: 'Steve'}
+print(type(d))  # <class 'dict'>
+
+print("==================================================")
+
+# 2nd Way to create dictionary
+# We can also create dictionary by adding elements in advance.
+
+d = {10: 'apple', 20: 'banana', 30: 'mango', 40: 'orange'}
+print(d)  # {10: 'apple', 20: 'banana', 30: 'mango', 40: 'orange'}
+
+#============================================================================================
+
+OPERATIONS ON DICTIONARY
+------------------------
+# ACCESSING DATA FROM DICTIONARY
+
+d = {10: 'apple', 20: 'banana', 30: 'mango', 40: 'orange'}
+
+print(d[30])  # mango
+# print(d[90])  # KeyError: 90
+
+print("==================================================")
+
+# UPDATE DATA OF DICTIONARY
+  -------------------------
+
+print(d)  # {10: 'apple', 20: 'banana', 30: 'mango', 40: 'orange'}
+d[30] = 'strawberry'
+print(d)  # {10: 'apple', 20: 'banana', 30: 'strawberry', 40: 'orange'}
+
+# If the key is not available in the dictionary, a new entry will be created.
+d[60] = 'cashew'
+print(d)  # {10: 'apple', 20: 'banana', 30: 'strawberry', 40: 'orange', 60: 'cashew'}
+
+print("==================================================")
+
+# DELETE DATA FROM DICTIONARY
+  ---------------------------
+
+# To delete, we have to use the keyword 'del'
+# This will delete permanently from the dictionary. We can't get back that data.
+# This is unbound operation.
+
+del d[10]
+del d[20]
+print(d)  # {30: 'strawberry', 40: 'orange', 60: 'cashew'}
+
+#============================================================================================
+
+FUNCTIONS ON DICTIONARY
+-----------------------
+
+d = {10: 'apple', 20: 'banana', 30: 'mango', 40: 'orange'}
+
+1) len() - will return the count of 'Key-Value' pairs in dictionary
+   print(len(d))  # 4
+
+2) get() - retrieve the value from dictionary based on Key.
+   print(d[40])  # orange
+   # print(d[150])  # KeyError: 150
+
+   get() function can also accepts argument of value.
+   SYNTAX :
+          d.get(Key, Default_Value)
+   If the key is available, will return resp value.
+   If the key is not available, will return specified Default_Value.
+   print(d.get(20,"lemon"))  # banana (Key is available)
+   print(d.get(80,"lemon"))  # lemon (Key is NOT available)
+
+3) pop() - will remove the (Key-Value) pair from the dictionary
+   print(d)  # {10: 'apple', 20: 'banana', 30: 'mango', 40: 'orange'}
+   print(d.pop(20))
+   print(d)  # {10: 'apple', 30: 'mango', 40: 'orange'}
+
+4) popitem() - will remove any random (key-value) pair, if key not specified
+   print(d.popitem())
+   print(d)  # {10: 'apple', 30: 'mango'}
+
+5) keys() - returns only keys
+
+6) values() - returns only values
+
+7) items() - returns (key-value) pair in the form of tuple. (k,v)
+
+8) copy() - create duplicate independent  object (CLONING)
+            If changes done inside 'd', those changes will not be  reflected inside 'd1' and vice-versa.
+9) update() - add the new (key-value) pairs to the dictionary
+
+#============================================================================================
+
+DICTIONARY COMPREHENSION
+------------------------
+- The process of creating data structures in easy and compact way is called comprehension.
+
+"""
+SYNTAX :
+        {expression for item in iterable_object if condition}
+
+        e.g.
+            {x*x           for     x       in      range(11)       if       x%2==0}
+            {expression    for    item     in    iterable_object   if    condition}
+
+        {[For each item in sequence (iterable_object) with if filter condition, upon applying expression]}
+        It will generate some value.
+
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

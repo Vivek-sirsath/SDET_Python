@@ -1,0 +1,241 @@
+Operators :-
+---------
+- Operator is a symbol (+,-,*,/) that performs operations on values (operands).
+- 10 + 20 = 30
+
+Types :-
+-----
+
+1) Arithmetic
+2) Relational or Comparison
+3) Equality
+4) Logical Operators
+5) Assignment
+6) Conditional or Ternary
+7) Special Operator -
+             Identity Operator
+             Membership Operator
+8) Bitwise
+======================================================================================================================
+
+1) Arithmetic Operators
+   --------------------
+Addition           +
+Subtraction        -
+Multiplication     *
+Division           /
+Floor Division     //
+Modulo Division    %
+Exponent Operator or Power Operator   **
+-----------------------------------------------------------------
+
+Division        -  /   ---> Returns float value (Returns quotient)
+Modulo Division -  %   ---> Returns reminder
+Floor Division  -  //  ---> Round up the result to the nearest whole number. Trim the fraction part.
+
+          if both values are int ---> Returns int
+          if at least one value is float ---> Returns float
+
++  -->  Concatenation Operator
+*  -->  Repetition Operator
+======================================================================================================================
+
+2) Relational or Comparison Operator and 3) Equality
+   ------------------------------------------------
+>   Greater than
+>=  Greater than or Equal to
+<   Less than
+<=  Less than or Equal to
+
+- These operators return boolean (True or False)
+
+# Chaining of relational operators is also possible.
+# True --> if all comparisons are true.
+# False --> if at least one comparison is false.
+
+print(10<20<30<40>50)   ---->  False
+print(10==20==30==40!=50)    ---->  False
+
+print(10<20<30<40<50)    ---->  True
+======================================================================================================================
+
+4) Logical Operators
+   -----------------
+   AND, OR, NOT
+
+   - Logical operators uses boolean and non-boolean values.
+
+   1) Using Boolean Values :-
+      --------------------
+   - Boolean => True or False
+   - If we use -
+               and : if both arguments (values) are True, result is True
+               or : if at least one argument is True, result is True
+               not : It is Compliment (Opposite Value)
+
+# Truth Table -
+
++---------+---------+---------+---------+---------+
+|    a    |    b    | a and b |  a or b |  not a  |
++---------+---------+---------+---------+---------+
+|   TRUE  |   TRUE  |   TRUE  |  TRUE   |  FALSE  |
++---------+---------+---------+---------+---------+
+|   TRUE  |  FALSE  |  FALSE  |  TRUE   |         |
++---------+---------+---------+---------+---------+
+|  FALSE  |   TRUE  |  FALSE  |  TRUE   |  TRUE   |
++---------+---------+---------+---------+---------+
+|  FALSE  |  FALSE  |  FALSE  |  FALSE  |         |
++---------+---------+---------+---------+---------+
+
+
++-------------------+----------------+
+| LOGICAL OPERATOR  |  BOOLEAN VALUE |
++-------------------+----------------+
+|        TRUE       |        1       |
++-------------------+----------------+
+|        FALSE      |        0       |
++-------------------+----------------+
+
+======================================================
+
+   2) Using Non-Boolean Values :-
+      ------------------------
+               If Zero (0) or Empty string ---> FALSE
+               If Non-Zero or Non-Empty String ---> TRUE
+
+            i) x and y --> if x is TRUE and y is TRUE then result is y
+                           if x is FALSE then result is x else it is y.
+`
+               e.g. 10 and 20  --> 20           0 and 20 `--> 0           30 and 0 --> 0
+                     x and y --> y              x and y --> x              x and y --> y
+                  TRUE and TRUE --> TRUE    FALSE and TRUE --> FALSE    TRUE and FALSE --> FALSE
+
+                     "java" and "selenium" --> selenium
+                     "" and "selenium" --> blank_space
+                     "selenium" and "" --> blank_space
+
+            ii) x or y --> if x is TRUE then result is x else it is y.
+               e.g. 10 or 20  --> 20            0 or 20 --> 0             30 or 0 --> 0
+                     x or y --> y               x or y --> x               x or y --> y
+                  TRUE or TRUE --> TRUE     FALSE or TRUE --> FALSE     TRUE or FALSE --> FALSE
+
+
+======================================================================================================================
+
+5) Assignment Operators
+   --------------------
+
+- Assignment Operator (=). It assigns something to the variable.
+
+=  ---> Assignment
+== ---> Comparison
+
+- Types of Assignment Operators
+
+Operator                  Name                    Example        Equivalent
+   =            Assignment                        x = 10          x = 10
+   +=           Addition Assignment               x += 5          x = x + 5
+   -=           Subtraction Assignment            x -= 3          x = x - 3
+   *=           Multiplication Assignment         x *= 4          x = x * 4
+   /=           Division Assignment               x /= 2          x = x / 2   returns quotient
+   %=           Modulus Assignment                x %= 7          x = x % 7   returns reminder
+   //=          Floor Division Assignment         x //= 3         x = x // 3  returns quotient
+   **=          Exponentiation Assignment         x **= 4         x = x ** 4  Returns power (x^4)
+
+# Below operators works on binary values
+   &=           Bitwise AND Assignment            x &= 5          x = x & 5
+   ^=           Bitwise XOR Assignment            x ^= 2          x = x ^ 2
+   >>=          Right Shift Assignment            x >>= 9         x = x >> 9
+   <<=          Left Shift Assignment             x <<= 9         x = x << 9
+
+
+
+======================================================================================================================
+
+5) Ternary Operator OR Conditional Operator
+   ----------------------------------------
+
+# In a single line if we specify condition and action then it is Ternary Operator
+# a if condition TRUE returns a else b
+# a if condition FALSE returns b
+
+======================================================================================================================
+
+7) Special Operator -
+
+   7.1  Identity Operator (is, is not)
+        ------------------------------
+        - It checks the memory location of 2 variables, means id of 2 variables.
+          It compares those ids and gives result accordingly.
+        - a is b
+        - a is not b
+
+   7.2  Membership Operator (in, not in)
+        --------------------------------
+        - It checks the presence of item or an object in a sequence.
+        a = [2,4,3,6]
+
+        print(3 in a)  # True
+        print(10 in a)  # False
+
+        print(3 not in a)  # False
+        print(10 not in a)  # True
+
+======================================================================================================================
+
+Arithmetic operation sequence
+
+PEDMAS or PEMDAS
+
++---------+------------------------------+---------------+
+|  Order  |  Rule Component              |   Operators   |
++---------+------------------------------+---------------+
+|   1st   |  Parentheses                 |       ()      |
++---------+------------------------------+---------------+
+|   2nd   |  Exponents                   |       **      |
++---------+------------------------------+---------------+
+|   3rd   |  Multiplication and Division |       *,/     |
++---------+------------------------------+---------------+
+|   4th   |   Addition and Subtraction   |       +,-     |
++---------+------------------------------+---------------+
+
+e.g.
+
+   result = 3+6*(5**2)/10-4
+   result = 3+6*25/10-4
+   result = 3+150/10-4
+   result = 3+15-4
+   result = 18-4
+   result = 14
+
+
+   res_2 = 4*8-6+2*(2**2)+3/2
+   res_2 = 4*8-6+2*4+3/2
+   res_2 = 32-6+8+3/2
+   res_2 = 32-6+8+1.5
+   res_2 = 26+8+1.5
+   res_2 = 34+1.5
+   res_2 = 35.5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

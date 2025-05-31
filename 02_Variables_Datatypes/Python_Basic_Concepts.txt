@@ -3,15 +3,18 @@
 # Single line comment ---> Ctrl + /  --->  #
 # Multiline comment ---> Ctrl + Shift + /  ---> """ """ OR ''' '''
 
-#######################################################################
+#################################################################################################################
 
 # Indentation :-
-  Indentation defines code blocks in python.
-  Statements with the same indentation belongs to the same block.
-  Use 4 spaces or Tab for indentation.
-  Indentation required for control flow, loops, functions and classes
+    Indentation defines code blocks in python.
+    Statements with the same indentation belongs to the same block.
+    Use 4 spaces or Tab for indentation.
+    Indentation required for control flow, loops, functions and classes
 
-######################################################################
+    Tab --> RHS indentation
+    Shift + Tab --> LHS indentation
+
+#################################################################################################################
 
 # Identifier :-
   Name in python is identifier
@@ -23,24 +26,25 @@
   3) Special characters are not allowed except underscores(_)
       Can have underscores(_)
       First_Program_123.py  ---  Valid
+      First_$Program@123.py  --- Invalid
   4) Must not start with numbers
       123_First_Program.py  ---  Invalid
   5) Should not contain Dollar_Sign ($)
   6) Identifiers are case-sensitive
     x = 10
     X = 20
-    If we call Cap X, it will only return 20.
+    If we call Cap X, it will return 20.
     If we call Small x, it will return 10.
   7) Reserved words in python are not allowed as identifier. Because those words have specific functionality.
 
 # If name starts with underscore _
   _name ---> private identifier
-# If namee starts with double underscore __
+# If name starts with double underscore __
   __name   --->  strongly private identifier
 # If name starts with double underscores and ends with double underscores
-  __ name __    --->  magic method
+  __name__    --->  magic method
 
-######################################################################
+#################################################################################################################
 
 # Keywords :-
 
@@ -52,10 +56,17 @@
   'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return',
    'try', 'while', 'with', 'yield'
 
-######################################################################
+#################################################################################################################
 
 Variable :-
 - reserved memory location ----> Stores data or information.
+
+Rules for Python Variables : (CodeStudio)
+- A variable name must start with a letter or the underscore (_) character.
+- A variable name can not start with number.
+- A variable name can only contain alphanumeric character or underscores(_).
+- Variable names are case-sensitive (age, Age or AGE are three different variables).
+- A variable can not be any of the Python reserved keyword.
 
 In Java,
 
@@ -67,9 +78,15 @@ In Java,
 
       We can't store string type data in x, vice versa.
 
+      In Java, we cant define ,
+      x = "String" because x is int type variable.
+      But in Python we can do it.
+      We can change the data type dynamically, Hence Python is dynamically typed programming language.
+
+
 In Python,
 
-      Based in data, tata type is automatically assigned.
+      Based on data, data type is automatically assigned.
       This behaviour is called Dynamically Typed Programming.
       Python is called Dynamically Typed Programming Language.
 
@@ -87,14 +104,27 @@ e.g.
       print(type(d))  # <class 'str'>
 
 # In Python every dataType has its own class.
-# A char is also having <'str'> data type.
+# In Python, a char is also having <'str'> data type.
+
+"""
+# Operations on variables :- (CodeStudio)
+a = 15
+b = 10
+
+print(a+b)  # 25
+
+a = 7
+b = 8
+
+print(7+8)  # 15
+"""
+
+#################################################################################################################
 
 # Deleting the variable :-
 - Anything in Python if we want to deletee explicitly, anything in Pyton is an Object.
 - Anything is Object like dot(.), comma(,) . . . .
 - Unnecessary Objects are deleted automatically by Python. In other languages we've to delete manually.
-
-######################################################################
 
 del keyword :-
 - Used to delete anything
@@ -103,7 +133,7 @@ del keyword :-
 a = 30
 print(a)
 del a
-print(a)
+print(a)  # NameError: name 'a' is not defined
 
 # Instead of 'del' we can use 'None' keyword
 - None --> Nothing
@@ -272,10 +302,10 @@ ford.drive()
 ford.get_info(50)
 
 
+=======================================================================================================================================================
 
 
 
-=================================================================================================================
 
 
 
@@ -286,7 +316,7 @@ ford.get_info(50)
                         Primitive                                                                Non-Primitive
                             |                                                                          |
         -----------------------------------------                           -------------------------------------------------------
-        |           |             |             |                          |                                                      |
+        |           |             |             |                          |                                                       |
     Integer       Float         String       Boolean                    Built-In                                               User Defined
                                                                            |                                                       |
                                                           ------------------------------------                        ------------------------

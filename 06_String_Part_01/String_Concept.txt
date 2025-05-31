@@ -1,0 +1,249 @@
+String
+------
+
+- It is a sequence of characters.
+- In Java, single character in single quote 'w' is a char data type. But in Python it is also a String data type.
+- There is no Char data type  in Python.
+- We should never use same quotes inside same quotes.
+
+How to create a String?
+
+# 1st Way : By using single(' ') or double(" ") quotes
+       s = ''   --> Empty string
+       s = ""   --> Empty string
+
+# 2nd Way : By type casting using 'str()' function
+       a = 10
+       print(type(a)) # <class 'int'>
+       print(type(str(a))) # <class 'str'>
+
+============================================================================================
+
+# Multiline String Literals :
+- It can be achieved by using ''' '''  OR """ """
+s = """
+        Welcome
+          to
+        Python
+      Programming """
+print(s)  # Same as above
+
+============================================================================================
+# We should never use same quotes inside same quotes.
+
+s = "Welcome to "Python" Programming"
+print(s) # SyntaxError: invalid syntax
+
+Solution : Use opposite quotes
+------------------------------
+s = "Welcome to 'Python' Programming"
+print(s)  # Welcome to 'Python' Programming
+
+============================================================================================
+
+# How to access characters in a String
+1) index or location or address
+2) slice operator
+
+         String Slicing
+
+        0   1   2   3   4
+        H   E   L   L   O
+       -5  -4  -3  -2  -1
+
+s = "HELLO"
+
+L --> R = Forward direction
+          Default start index  --> 0         End index = len-1
+R --> L = Reverse / Backward direction
+          Default start index  --> -1        End index = -len
+
+len() function : returns count of characters (length of a String)
+print(len(s))  # 7
+
+print(s[2])  # l
+print(s[-4])  # e
+print(s[10])  # IndexError: string index out of range
+print(s[-8])  # IndexError: string index out of range
+============================================================================================
+
+2) slice operator
+   --------------
+
+   - It uses two indices. (Starting index and Ending index)
+   - It also accepts step. Default step value is 1. (It is optional)
+   - It makes the slice of string (like slice of pineapple)
+   - it is like substring in Java.
+   - start index : start index of slice (substring)
+   - end index : end index of slice (substring)
+   - step : It is the interval between two elements (optional).
+     Step controls how many elements to skip while traversing through the sequence of characters of string.
+     e.g.
+         list(range(1,10,2))   -->  1,3,5,7,9
+   - Slice operator behaves same as range() function
+
+     s[start index : end index : step]
+
+s = "123456789"
+
+print(s[2:7])  # 34567    # Default step 1
+print(s[1:9])  # 23456789
+print(s[1:9:2])  # 2468
+print(s[:5])   # 12345
+print(s[5:])   # 6789
+print(s[::])  # 123456789
+print(s[4:100000:1])  # 56789
+print(s[100000:5:1])  # Blank_output
+
+print("=============================================")
+# 123456789
+
+print(s[::-1])  # 987654321
+print(s[7:3:-1])  # 8765
+print(s[7:3:1])   # Blank_output
+print(s[3:7:1])  # 4567
+print(s[5:5:1])   # Blank_output
+print(s[5:5:-1])   # Blank_output
+
+print("=============================================")
+
+s = "Programming"
+
+print(s[2:7])  # ogram     # Default step 1
+print(s[1:9])  # rogrammi
+print(s[1:9:2])  # rgam
+print(s[:5])   # Progr
+print(s[5:])  # amming
+print(s[::])  # Programming
+print(s[4:100000:1])  # ramming
+print(s[100000:5:1])  # Blank_output
+
+print("=============================================")
+# Programming
+
+print(s[::-1])  # gnimmargorP
+print(s[7:3:-1])  # mmar
+print(s[7:3:1])   # Blank_output
+print(s[3:7:1])  # gram
+print(s[5:5:1])   # Blank_output
+print(s[5:5:-1])   # Blank_output
+
+# IMPORTANT :
+  ---------
+- If start index < end index in Backward direction, the result is always empty.
+- If start index > end index in Forward direction, the result is always empty.
+- If start index == end index in both direction, the result is always empty.
+
+============================================================================================
+
+# 07. String (Part 2)
+---------------------
+
+Mathematical operators
+----------------------
+
+Concatenation Operator --> +  // Compulsory both arguments must be String.
+Repetition / Multiply Operator --> *   // One argument must be String and other must be integer.
+
+len() - Counts the number of characters in the String.
+
+# Presence of character or substring in the main string :
+--------------------------------------------------------
+Identity operator --> is , is not
+a = 100
+b = 100
+
+print(a is b)  # True
+print(a is not b)  # False
+--------------------------------------------------------
+Membership operator --> in , not in
+
+print("Python" in s2)  # True
+print("python" not in s2) # True
+
+print("Java" in s2) # False
+print("Java" not in s2)  # True
+--------------------------------------------------------
+
+# Remove spaces in string :
+---------------------------
+rstrip() --> removes spaces from right
+lstrip() --> removes spaces from left
+strip() --> removes spaces from both sides
+
+s = "  Hollywoo d    "
+print(s.rstrip())
+print(s.lstrip())
+print(s.strip())  # Hollywoo d
+
+# Comparison of string :
+  --------------------
+- It is done by lexicographically --> means comparison is done based on ASCII code.
+- ASCII - American Standard Code for Information Interchange.
+- First character comparison will be done.
+- If first character is same it will check for second character.
+- In Python, 2 functions are implemented.
+  ord() - returns ASCII code
+  chr() - returns character. If we want to return a character based on ASCII code.
+
+ --------------------------------------------------------
+
+# Find Substring
+  --------------
+"Python is very very simple"
+
+find() --> Returns index of first occurrence of string  --> Returns '-1' if not found
+index() --> Same as find() --> Returns 'ValueError' if not found
+
+rfind() --> Returns index of last occurrence of string  --> Returns '-1' if not found
+rindex() --> Same as rfind() --> Returns 'ValueError' if not found
+
+print(s.find("very"))  # 10 (starting index of first occurrence of string )
+print(s.find("java"))  # -1
+
+print(s.index("very"))  # 10
+print(s.rindex("very"))  # 15
+
+# If string not present
+#print(s.rindex("java"))  # ValueError: substring not found
+#print(s.index("java"))  # ValueError: substring not found
+
+--------------------------------------------------------
+
+count() - no of times string occurred
+-------------------------------------
+print(s.count("very"))  # 2
+
+--------------------------------------------------------
+
+replace() - replace substring in a main string
+
+s = "Learning Python is very difficult"
+print(s)  # Learning Python is very difficult
+new = s.replace("difficult", "easy")
+print(s)  # Learning Python is very difficult
+# (String is immutable, we've to create a new string variable to store changes)
+# We can not modify the original string. We've to create new object (new)
+print(new)  # Learning Python is very easy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

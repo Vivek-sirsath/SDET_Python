@@ -1,0 +1,104 @@
+# FILE HANDLING IN PYTHON :
+-------------------------
+
+programming requirement --> store our data for future purpose --> files --> common permanent storage areas.
+Data Driven Testing --> Test Data --> txt, json, excel, csv, properties file etc.
+
+# TYPES OF FILES :
+----------------
+1) Text Files --> Stores character data
+                  e.g.
+                      FileHandling.txt
+
+2) Binary Files --> Stores binary data
+                  e.g.
+                      Video, Audio, Images etc.
+
+# Open a File :
+-------------
+            f = open(filename,mode)
+mode : What type of operation ?
+
+# Close a File :
+--------------
+            f.close()
+
+# PROPERTIES OF FILE :
+----------------------
+name
+mode
+closed
+readable()
+writable()
+
+
+# MODE DESCRIPTION :-
+------------------
+
+  ================================================================================================================
+  Text File Mode    Binary File Mode   Description                          Explanation
+  ----------------------------------------------------------------------------------------------------------------
+        r                  rb           Read Only            File must exist, otherwise error thrown
+                                                             'FileNotFound'.
+  ----------------------------------------------------------------------------------------------------------------
+        w                  wb           Write Only           If file not exists, file will be created.
+                                                             If file exist, Python will truncate existing data
+                                                             and overwrite the file.
+  ----------------------------------------------------------------------------------------------------------------
+        a                  ab           Append               File is in write mode only, new data will be added
+                                                             to the end of existing data. i.e. No overwriting
+                                                             If file not exist, it will be created.
+  ----------------------------------------------------------------------------------------------------------------
+        r+              rb+ OR r+b     Read and Write        File must exist otherwise error will raise.
+                                                             Both reading and writing can take place.
+  ----------------------------------------------------------------------------------------------------------------
+        w+              wb+ OR w+b     Write and Read        File is created if not exist. If exists, data will be
+                                                             truncated, both read and write allowed.
+  -----------------------------------------------------------------------------------------------------------------
+        a+              ab+ OR a+b     Append and Read       Same as above but previous content will be retained.
+                                                             Both read and write allowed.
+  =================================================================================================================
+
+
+
+
+# FILE HANDLING IN PYTHON
+
+f = open("abc.txt","w")
+print(f.name)  # abc.txt
+print(f.mode)   # w
+print(f.readable())  # False
+print(f.writable())  # True
+print(f.closed)  # False
+
+f.close()
+
+print(f.closed)  # True
+
+
+#=================================================================================================================
+
+
+# WRITE DATA TO FILE
+--------------------
+write("str")
+writelines(list of lines)
+
+- When we open the file in writing mode 'w', the data will be overwritten.
+- Old data deleted and new data will be added in place of old data.
+
+# READ DATA FROM FILE
+---------------------
+read()  -->  Read all the data from the file.
+read(n)  -->  Read 'n' characters from the file.
+readline()  -->  Read single line from the file.
+readlines()  -->  Read all the lines as list.
+
+
+# CONTEXT MANAGER or 'WITH' STATEMENT :
+------------------------------------
+- To close file automatically once perform operation we can go for context manager.
+
+
+
+

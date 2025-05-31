@@ -1,0 +1,583 @@
+FUNCTIONS IN PYTHON
+-------------------
+- Function is a set of statements, upon calling that function it will perform certain task.
+- It helps to avoid
+        Code duplication
+        Memory issue
+        Code maintenance
+- Functions and Methods are different in Python.
+
+# Types of Functions :
+1) Built-in functions
+      print(), id(), type(), eval(), int()
+
+2) User defined functions
+      Programmers develop functions explicitly according to business requirement.
+
+      def sample_function():
+            print("Hello Python")
+            print("Hello Python")
+            print("Hello Python")
+            print("Hello Python")
+
+#=======================================================================================
+
+# SYNTAX of User Defined Function
+---------------------------------
+
+def function():
+        statement 1
+        statement 2
+        return result
+
+#=============================================
+
+def function(inputs or parameters):
+        statement 1
+        statement 2
+        return result
+
+NOTE: inputs or parameters, return keyword are optional.
+
+Parameters --> Inputs to the function
+Arguments --> Actual values passed to input during function call. e.g. "Vivek"
+
+        def sample_function(name):
+            print(f"Hello {name}")
+
+sample_function("Geethika")
+sample_function("Ishita")
+sample_function("Deepika")
+
+# Here, 'name' is a parameter and 'Deepika' is an actual argument.
+# 'name' is also called as Formal Argument.
+
+#=======================================================================================
+
+- In C, C++, Java --> function / method returns only one value.
+- In Python --> function / method can return any number of values.
+
+#=======================================================================================
+
+# FUNCTION WITHOUT PARAMETERS
+-----------------------------
+
+def sample_function():
+    print("Hello Python")
+    print("Hello Python")
+    print("Hello Python")
+
+sample_function()
+sample_function()
+# These functions will print the statements multiple times.
+# We can call the function multiple times.
+
+# FUNCTION WITH PARAMETERS
+--------------------------
+
+def sample_function(name):
+    print(f"Hello {name}")
+
+sample_function("Geethika")
+sample_function("Ishita")
+sample_function("Deepika")
+
+# Here, 'name' is a parameter and 'Deepika' is an argument.
+
+print("======================== TYPES OF FUNCTIONS ============================")
+"""
+1) Function with No parameters and No return value
+2) Function with parameters and No return value
+3) Function with parameters and return value
+4) Function with No parameters and return value
+"""
+
+print("============== 1) Function with No parameters and No return value ===============")
+
+def sunday():
+    print("This is Sunday")
+
+sunday()  # This is Sunday
+print(sunday())   # This is Sunday # None
+
+
+print("============== 2) Function with parameters and No return value ===============")
+
+def firstDay(day):
+    print(f"This is {day}")
+
+firstDay("Monday")  # This is Monday
+print(firstDay("Monday"))   # Here Monday is an argument. # This is Monday  # None
+
+print("============== 3) Function with parameters and return value ===============")
+
+def myfunc(name):
+   return f"Hello {name}"
+myfunc("Stacy")
+print(myfunc("Stacy"))  # Hello Stacy # Printed only once.
+
+print("============== 4) Function with No parameters and return value ===============")
+
+def myfunc():
+   return f"Hello Stacy"
+myfunc()
+print(myfunc())  # Hello Stacy  # Printed only once.
+
+print("============== Function in Python can return any number of values ===============")
+# Those multiple values return in the form of tuple.
+
+def myfunc():
+   return "Hello Stacy", "Hello John", "Hello Tom"
+t = myfunc()
+print(myfunc())  # ('Hello Stacy', 'Hello John', 'Hello Tom')
+
+# return in the form of tuple, further if we want the values, we can do it by tuple unpacking.
+a,b,c = t   # Tuple Unpacking
+print(a)
+print(b)
+print(c)
+
+#==================================================================================================================
+#============================================== END OF PART-1 =====================================================
+#==================================================================================================================
+
+SYNTAX :
+--------
+
+def func(inputs or parameters)
+    ------
+    ------
+    ------
+    return result
+
+func(Actual Arguments)
+
+- inputs or parameters --> Formal Arguments
+===============================================
+
+TYPES OF ARGUMENTS
+------------------
+
+1) Positional Arguments
+2) Keyword Arguments
+3) Default Arguments
+4) Variable Length Arguments
+5) Keyword Variable Length Arguments
+
+
+1) POSITIONAL ARGUMENTS :
+   --------------------
+   Arguments passed to a function in correct positional order is called positional Arguments.
+   - DRAWBACK - Changing the order will change the result or will show errors.
+
+
+def div(i,j):
+    print(i/j)
+
+div(10,20)  # 0.5
+div(20,10)  # 2.0   # Result changed due to changing the position of arguments.
+
+
+2) KEYWORD ARGUMENTS :
+   -----------------
+   - Arguments with parameter names / inputs (keywords) are called Keyword Arguments.
+   - Order does not matter but count matters
+
+def div(i,j):
+    print(i/j)
+
+div(i =10, j = 20)   # 0.5   # KEYWORD ARGUMENTS
+div(j = 20, i = 10)  # 0.5   # Result not changed due to changing the position of arguments. Because of use of keywords.
+
+# i and j are Keyword Arguments means actual arguments with keywords.
+
+2.1) POSITIONAL-KEYWORD MIXED ARGUMENTS :
+     ----------------------------------
+     - Both Positional Arguments and Keyword Arguments can be used.
+     - But, first we should specify Positional and then Keyword Arguments.
+
+def greet(name, msg):
+    print("Hello", name,msg)
+
+greet("Isha","Good Morning!")  # Hello Isha Good Morning!  # VALID
+greet("Isha", msg = "Good Morning!")  # Hello Isha Good Morning!  # VALID
+# greet(name= "Isha","Good Morning..!")   # SyntaxError: positional argument follows keyword argument   # INVALID
+
+
+3) DEFAULT ARGUMENTS :
+   -----------------
+   - Assign default values to the parameters
+   - If not provided any values in function call, default values are considered.
+   - We should not take any  Non Default Arguments in sequence After Default Arguments. It will give syntax error.
+   - Valid Order --> Positional > Keyword > Default
+
+def greet(name = "Deepika", msg = "how are you..?"):
+    print("Hello", name,msg)
+
+greet()  # Hello Deepika how are you..?
+greet(msg="good morning...!")   # Hello Deepika good morning...!
+greet(name="Monika")  # Hello Monika how are you..?
+greet(name="Emily",msg="I'm busy, will call you back...!")  # Hello Emily I'm busy, will call you back...!
+
+
+4) VARIABLE LENGTH ARGUMENTS (Count of Arguments) :
+   ----------------------------------------------
+   - If we dont know the count of arguments.
+   - Length of parameters is not fixed. We can pass any number of arguments (even zero) using '*' as prefix.
+   - Values are stored as Tuple.
+
+
+def order_pizza(size,*toppings):
+    print(f"Order a {size} sized pizza with toppings: {','.join(toppings)}")
+
+order_pizza("Medium")
+order_pizza("Large", "Pepperoni", "Mushroom", "Olives")
+order_pizza("Small", "Onion", "Corn")
+
+
+4.1) VARIABLE LENGTH ARGUMENTS MIXED WITH POSITIONAL ARGUMENTS :
+     ---------------------------------------------------------
+- After variable length arguments --> Keyword arguments should come.
+- If we don't mention any keyword, those arguments will be treated as variable length arguments unless we mention the keyword.
+
+def sum(n1,*n):
+    print(n)
+
+sum(10)  # ()
+sum(100)  # ()
+sum(10,20)  # (20,)
+sum(10,20,30,40,50)  # (20, 30, 40, 50)
+
+
+print("===================== IF USE POSITIONAL ARGUMENT AFTER VARIABLE LENGTH ARGUMENT =======================")
+
+
+def sum(*n,n1):
+    print(n)
+
+sum(10,20,30)
+
+# WILL SHOW ERROR :
+# TypeError: sum() missing 1 required keyword-only argument: 'n1'
+# It will take all the values as 'Variable Length Argument'
+
+print("===================== TO RESOLVE THE ERROR, USE KEYWORD 'n1' WITH POSITIONAL ARGUMENTS =======================")
+
+def sum(*n,n1):
+    print(n)
+
+sum(10,20, n1=30)  # (10,20)
+
+
+
+
+5) KEYWORD VARIABLE LENGTH ARGUMENTS :
+   ---------------------------------
+   - Use (**kwargs) for Keyword Variable-Length Arguments.
+   - Data stored in Dictionary {} in Key-Value pairs.
+
+def display(**kwargs):
+    for k,v in kwargs.items():
+        print(k,'=',v)
+    print(kwargs)
+
+display(a=10,b=20,c=30)
+display(a=100,b=200,c=300)
+
+
+"""
+CONSOLE OUTPUT:
+
+a = 10
+b = 20
+c = 30
+{'a': 10, 'b': 20, 'c': 30}
+a = 100
+b = 200
+c = 300
+{'a': 100, 'b': 200, 'c': 300}
+"""
+
+print("==================================================================")
+
+def create_user_profile(name,age,**additional_info):
+    profile = {
+        "Name" : name,
+        "Age" : age
+    }                               # profile = {}, is dictionary.
+
+    profile.update(additional_info) # ADD ADDITIONAL INFO TO THE PROFILE
+    print("User Profile:",profile)
+
+create_user_profile("Vivek","35",location="India",profession="Tester",hobbies="Reading")
+create_user_profile("Deepika","29",role="Senior Associate Consultant")
+
+
+"""
+CONSOLE OUTPUT:
+
+User Profile: {'Name': 'Vivek', 'Age': '35', 'location': 'India', 'profession': 'Tester', 'hobbies': 'Reading'}
+User Profile: {'Name': 'Deepika', 'Age': '29', 'role': 'Senior Associate Consultant'}
+"""
+
+#==============================================================================================================
+
+TYPES OF FUNCTIONS :
+------------------
+
+- A function can take another function as an argument.
+- Return another function as a result.
+
+1) First Order Functions
+2) Higher Order Function (HOFs)
+3) First-Class Functions
+
+
+1) FIRST ORDER FUNCTION :
+   ---------------------
+   - Do not take any other function as an argument.
+   - Do not return a function as a result.
+   - Only operates on basic data types.
+
+
+def div(i,j):
+    print(i/j)
+
+div(10,20)  # 0.5
+div(10.5,20.5)  # 0.5121951219512195
+
+2) HIGHER ORDER FUNCTION (HOFs) :
+   ---------------------------
+   - map(),  filter(), reduce()
+   - Take one or more functions as arguments.
+   - Returns a function as its result.
+
+
+def apply_function(func,value):
+    return func(value)
+def square(num):
+    return num**2
+
+# Here, apply_function() calling another function square()
+
+print(apply_function(square,3))  # 9
+
+
+3) FIRST-CLASS FUNCTION :
+   --------------------
+   - When we assign a function to another function then that another function is called First Class Function.
+
+#==============================================================================================================
+
+# FUNCTION vs MODULE vs LIBRARY(PACKAGE) :
+------------------------------------------
+- A group of line of code with a function_name is called Function.
+- A group of functions is saved to a file, that file is called Module (.py File).
+- A group of modules is Library (Package).
+- Selenium is a library and WebDriver is a module.
+
+
+# TYPES OF VARIABLES OF FUNCTION :
+---------------------------------
+
+1) Global Variable :
+   declared outside of function and accessible within all function in a same module.
+
+2) Local Variable :
+   declared inside of function and accessible only within that function.
+
+-------------------------------------------------------------------------------------------
+
+company_name = "Microsoft"  # Global Variable
+
+def employee_details():
+    global location   #  We can make any local variable as Global by using 'global' keyword.
+    location = "Pune"  # Local variable
+    employee_name = "John Legend" # Local  Variable
+    print(f"Employee: {employee_name}, Location: {location}, Company: {company_name}")
+
+def company_info():
+    print(f"Welcome to, {company_name}")
+
+def company_address():
+    print(f"Address: {company_name} , {location}")
+
+employee_details()  # Employee: John Legend, Company: Microsoft
+company_info()  # Welcome to, Microsoft
+company_address()  # Address: Microsoft , Pune
+
+
+#==================================================================================================================
+#============================================== END OF PART-2 =====================================================
+#==================================================================================================================
+
+
+# LAMBDA FUNCTION or ANONYMOUS or NAMELESS FUNCTION :
+--------------------------------------------
+
+- We use lambda functions for instant use of function.
+- Only single time we can use Lambda function.
+- It returns the result automatically. Not like normal functions where we use 'return' keyword.
+- In Lambda function use of 'return' keyword is optional.
+- we've to use 'lambda' keyword.
+- Lambda functions don't have any name (Anonymous). While normal functions has a name.
+
+SYNTAX
+------
+       lambda arguments_list: expression
+
+--------------------------------------------------------------
+# Square of a number using Lambda Function
+
+# Normal Function:
+def square(n):
+    print(n*n)
+
+square(4)  # 16
+
+# Lambda Function
+s = lambda n:n*n
+
+print(s(10))  # 100
+
+---------------------------------------------------------------
+
+# Addition of 2 numbers using Lambda Function.
+
+# Normal Function
+def add(a,b):
+    print(a+b)
+
+add(30,20)  # 50
+
+# Lambda Function
+s = lambda a,b:a+b
+
+print(s(15,10))  # 25
+
+---------------------------------------------------------------
+
+# Find biggest of 2 numbers using Lambda Function
+
+# Normal Function
+
+def findBiggest(a,b):
+    if a>b:
+        print(a)
+    else:
+        print(b)
+
+
+findBiggest(45,20)  # 45
+findBiggest(20,50)  # 50
+
+
+# Lambda Function
+
+s = lambda a,b: a if a>b else b  # Ternary Operator
+print(s(300,20))  # 300
+print(s(60,120))  # 120
+
+#==============================================================================================================
+
+# Use of Higher Order Functions (HOFs) :
+- Higher Order Functions - map(), filter(), reduce()
+
+filter() -
+--------
+- Filter values from the sequence based on condition.
+
+SYNTAX
+------
+
+        filter(function,sequence)
+
+
+# filter()
+----------
+
+l = [5,10,15,20,25,30]
+
+# Normal for loop
+for x in l:
+    if x%2==0:
+        print(x)  # 10 20 30
+    else:
+        pass
+
+
+# Using filter function
+
+def isEven(l):
+    if l%2==0:
+        return True
+    else:
+        return False
+
+print(list(filter(isEven,l)))  # [10, 20, 30]
+
+print("=================== Using Lambda Function ====================")
+
+# Filter function with Lambda Function.
+
+print(list(filter(lambda x:x%2==0,l)))  # [10, 20, 30]
+print(list(filter(lambda x:x%2!=0,l)))  # [5, 15, 25]
+
+
+print("=================== Filter Salary Using Lambda Function ====================")
+
+# Filter employees with salary > 50000
+employees = [{'name':'Leonardo','salary':40000},{'name':'Stacy','salary':80000},{'name':'Larry','salary':60000}]
+print(list(filter(lambda emp:emp['salary']>50000, employees)))  # Example of Data Mining
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

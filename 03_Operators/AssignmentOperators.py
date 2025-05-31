@@ -27,6 +27,10 @@ c = 20
 c //= 6
 print("By Floor Division Assignment //= :" , c) # 3   (Returns quotient)
 
+x = 10
+x //= 2
+print("By Floor Division Assignment //= :" , x)  # 5  (Returns quotient)
+
 c **= 4
 print("By Exponentiation Assignment **= :" , c)  # 3*3*3*3 = 81
 

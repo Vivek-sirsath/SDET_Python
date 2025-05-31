@@ -1,0 +1,191 @@
+Set Data Structure
+------------------
+
+List[], Tuple() --> Group of values (maybe duplicate) as a single entity.
+Set{} --> Group of UNIQUE values as a single entity.
+
+- Duplicates are not allowed.
+- Insertion order is not preserved.
+- Indexing and slicing is not supported because, insertion order is not preserved.
+- Homogeneous or Heterogeneous objects are allowed.
+- Mutable
+- Elements enclosed inside curly braces {} separated by comma (,)
+- As indexing and slicing not supported, we can not access individual elements easily like 'List' and 'Tuple'
+  We need to type cast 'Set' with 'List' or  'Tuple' to access each element.
+  s = {10,20,30,40,20,50,60,20,70}
+  slist = list(s)
+
+  #============================================================================================
+
+# CREATION OF SET
+  -----------------
+
+s = {}
+print(s)  # {}
+print(type(s))  # <class 'dict'>
+
+# This shows the data type as dictionary, not set data type.
+# But if we want to declare empty data set, use empty set function - 'set()'
+
+s = set()  # Empty Set
+print(s)  # set()
+print(type(s))  # <class 'set'>
+print("==================================================")
+
+s = {10,20,30,40}
+print(s)  # {40, 10, 20, 30}
+print(type(s))  # <class 'set'>
+
+print("==================================================")
+
+s = {40,12.9,True,"Welcome",'k',10+5j,40,"Welcome"}
+print(s)  # {True, 'Welcome', 40, (10+5j), 'k', 12.9}  # Duplicates not allowed
+print(type(s))
+
+print("==================================================")
+
+# s = eval(input("Enter data -"))
+# print(s)  # {60,70,"John",12.5,False}
+# print(type(s)) # <class 'set'> # If not used eval() function >> <class 'str'>
+
+print("==================================================")
+s = set(range(11))  # Type Casting - Set with Range Data Type
+print(s)  # {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+print(type(s))
+
+print("==================================================")
+s = {10,20,30,40,20,50,60,20,70}
+# print(s[1])  # TypeError: 'set' object is not subscriptable ## Indexing is not supporting
+slist = list(s)  # We need to Type Cast with List
+print(slist[1])  # 20
+
+#============================================================================================
+
+# FUNCTIONS OF SET
+
+1) add() - will add element to the set.
+s = {10,20,30}
+s.add(40)
+print(s)  # {40, 10, 20, 30}
+
+2) update() - will add multiple objects / elements
+s.update([50,60,70],["Vivek",13.8,False])
+print(s)  # {False, 'Vivek', 70, 40, 10, 13.8, 50, 20, 60, 30}
+
+3) copy() - will create cloned object. Duplicate independent object.
+
+4) pop() - It removes and return some random elements from the set.
+
+5) remove() - It removes specified element from the set.
+              If specified element not present, it will throw 'KeyError'
+
+6) discard() - It removes the specified element from the set.
+               If element not specified, will not throw any error.
+
+7) clear() - will remove all the elements from the set.
+
+#============================================================================================
+
+MATHEMATICAL OPERATIONS ON SET
+------------------------------
+
+- Union
+- Intersection
+- Difference
+- Symmetric_difference
+- Presence of element by Membership Operator (in, not in)
+- Concatenation or Repetition Operator.
+
+x = {10,20,30,40}
+y = {30,40,50,60}
+
+# Combined all elements in both sets
+print(x.union(y))  # {40, 10, 50, 20, 60, 30}
+# Common elements in both sets
+print(x.intersection(y))  # {40, 30}
+
+print("==================================================")
+
+# Different elements in x (Which elements are different in x)
+print(x.difference(y))  # {10, 20}
+# Different elements in y (Which elements are different in y)
+print(y.difference(x))  # {50, 60}
+
+print("==================================================")
+
+# Elements present in x OR y, but not in both.
+print(x.symmetric_difference(y))  # {10, 50, 20, 60}
+print(y.symmetric_difference(x))  # {10, 50, 20, 60}
+
+#============================================================================================
+
+SET COMPREHENSION
+-----------------
+
+- The process of creating data structures in easy and compact way is called comprehension.
+
+SYNTAX :
+        {expression for item in iterable_object if condition}
+
+        e.g.
+            {x*x           for     x       in      range(11)       if       x%2==0}
+            {expression    for    item     in    iterable_object   if    condition}
+
+        {[For each item in sequence (iterable_object) with if filter condition, upon applying expression]}
+        It will generate some value.
+
+
+s = {x*x for x in range(11) if x%2==0}
+print(s)  # {0, 64, 4, 36, 100, 16}
+
+
+s = {x*x for x in range(5)}
+print(s)  # {0, 1, 4, 9, 16}
+
+s = {2**x for x in range(10)}
+print(s)  # {32, 1, 2, 64, 4, 128, 256, 512, 8, 16}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

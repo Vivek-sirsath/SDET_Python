@@ -53,9 +53,18 @@ x = None
 print(x)  # None
 #print(x + y)   # TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
 
+################################################################
+# CODE STUDIO :-
 
+a = 15
+b = 10
 
+print(a+b)  # 25
 
+a = 7
+b = 8
+
+print(7+8)  # 15
 
 
 

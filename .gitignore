@@ -1,0 +1,46 @@
+# created by virtualenv automatically
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE settings
+.idea/
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Python environment files
+*.env
+.env.*
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Test and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# My custom excludes (optional)
+*.sqlite3
+*.bak
+
+# pip logs
+pip-log.txt
