@@ -1,6 +1,6 @@
-# Write data to file (abc.txt)
+# Write data to file (pqr.txt)
 
-f = open("abc.txt", "w")
+f = open("pqr.txt", "w")
 
 # f.write("Learning\n")
 # f.write("Python is\n")
@@ -11,8 +11,12 @@ f.writelines(list)
 
 f.close()
 
-# Here, data will be overwritten. First line will be overwritten by list of lines.
-# To overcome this, we need to open the file in 'Append' mode (a)
+# writelines() method writes the 'list of lines'
+# Here, data will be overwritten using writelines() method. First line will be overwritten by list of lines.
+# Here 'Learning Python is very easy' these lines are overwritten by 'Hello everyone.....'
+# To overcome this problem, we need to open the file in 'Append' mode (a)
 
-f = open("abc.txt", "a")
+# APPEND MODE :
+
+f = open("pqr.txt", "a")
 f.write("I am Senior Test Engineer")

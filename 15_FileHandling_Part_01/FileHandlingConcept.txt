@@ -14,10 +14,14 @@ Data Driven Testing --> Test Data --> txt, json, excel, csv, properties file etc
                   e.g.
                       Video, Audio, Images etc.
 
+# Opening a file and closing a file  are mandatory operations.
+
 # Open a File :
 -------------
             f = open(filename,mode)
-mode : What type of operation ?
+
+# Opening a file will return file object. f = object of file.
+mode means : What type of operation ?
 
 # Close a File :
 --------------
@@ -81,24 +85,472 @@ print(f.closed)  # True
 
 # WRITE DATA TO FILE
 --------------------
+
 write("str")
 writelines(list of lines)
 
 - When we open the file in writing mode 'w', the data will be overwritten.
 - Old data deleted and new data will be added in place of old data.
 
+# Write data to file (pqr.txt)
+
+f = open("pqr.txt", "w")
+
+# f.write("Learning\n")
+# f.write("Python is\n")
+# f.write("very easy\n")
+
+list = ["Hello everyone\n", "Good morning\n", "My name is Vivek\n"]
+f.writelines(list)
+
+f.close()
+
+# writelines() method writes the 'list of lines'
+# Here, data will be overwritten using writelines() method. First line will be overwritten by list of lines.
+# To overcome this, we need to open the file in 'Append' mode (a)
+
+# APPEND MODE :
+
+f = open("pqr.txt", "a")
+f.write("I am Senior Test Engineer")
+
+#=================================================================================================================
+
 # READ DATA FROM FILE
 ---------------------
+
 read()  -->  Read all the data from the file.
 read(n)  -->  Read 'n' characters from the file.
 readline()  -->  Read single line from the file.
 readlines()  -->  Read all the lines as list.
 
 
+# Read data from file (abc.txt)
+
+f = open("abc.txt", "r")
+
+print("======== Read all the lines ========")
+# print(f.read())   # This will read all the lines from file.
+
+"""
+CONSOLE OUTPUT:
+
+Hello everyone
+Good morning
+My name is Vivek
+I am Senior Test Engineer
+"""
+
+print("======== Read characters using index ========")
+# print(f.read(10))  # Hello ever       # read first 10 characters
+
+# print(f.read(32))  # Output: First 32 characters
+
+# Hello everyone
+# Good morning
+# My n
+
+print("======== Read single line ========")
+# line1 = f.readline()
+# print(line1)   # yone
+# line2 = f.readline()
+# print(line2)   # Good morning
+
+print("======== Read all the lines using for loop ========")
+
+# lines = f.readlines()
+#
+# for line in lines:
+#     print(line)
+
+print("======== Read the lines using slice operator (:) ========")
+
+lines = f.readlines()
+
+# last_n_lines = lines[-10::-1]
+
+for line in lines[1:3]:
+    print(line)
+
+# for line in lines[-2:]:
+#     print(line)
+
+# for line in lines[:2]:
+#     print(line)
+
+# for line in lines[10::-1]:
+#     print(line)
+
+"""
+CONSOLE OUTPUT:
+
+Good morning
+
+My name is Vivek
+"""
+
+f.close()
+
+
+
 # CONTEXT MANAGER or 'WITH' STATEMENT :
+-------------------------------------
+- Context manager is nothing but the 'with' statement.
+- Purpose of the context manager is to close file automatically once perform operation we can go for context manager.
+
+# WITH STATEMENT
+----------------
+# f = open("abc.txt", "w") , is same as, below declaration where 'as f' is an alias.
+
+with open("abc.txt", "w") as f:
+    f.write("File\n")
+    f.write("handling\n")
+    f.write("in\n")
+    f.write("Python")
+
+print(f.closed)  # True
+
+print("=========== READ THE DATA FROM THE FILE ===========")
+
+# READ THE DATA FROM THE FILE.
+with open("abc.txt","r") as f:
+    print(f.read())
+
+"""
+CONSOLE OUTPUT:
+
+File
+handling
+in
+Python
+"""
+
+#=================================================================================================================
+
+# CHECK THE PRESENCE OF THE FILE
+--------------------------------
+
+- There are multiple ways to check whether the file exist or not.
+- To check the presence of the file, we've to use OS Module (Operating System)
+
+- os.path.exists(file_path)  -->  Checks both Files and Directories
+- os.path.isfile(file_path)  -->  Checks only Files
+
+- pathlib.Path(file_path).exists()  -->  Checks both Files and Directories. We need to import from pathlib.
+     (Recommended for Python 3.4+)       From pathlib, import the path.
+-----------------------------------------------------------------------------------------------------------------
+
+OS MODULE vs SYS MODULE :
+-----------------------
+
+OS Module :-
+OS is like Windows file explorer -->  We can create/delete folders, open files, and run system programs.
+
+SYS Module :-
+Sys is like Python's Control Panel --> It helps Python understand its environments and control script execution.
+#----------------------------------------------------------------------------------------------------------------
+
+import os.path
+from pathlib import Path
+
+filepath = r"C:\Users\Admin\PycharmProjects\PythonProject\SDET_Python_Selenium\15_FileHandling_Part_01\abc.txt"
+
+print(os.path.isfile(filepath))    # True
+print(os.path.exists(filepath))    # True
+print(Path(filepath).exists())    # True
+
+
+#==================================================================================================================
+#============================================== END OF PART-1 =====================================================
+#==================================================================================================================
+
+
+# seek() and tell() methods :
+----------------------------
+
+seek() --> Move cursor to a specific location or index.
+tell() --> Return where the location or index of a cursor is.
+
+- By default first character will be 0 as a index number.
+- To avoid redundant processing --> Efficiently reading large files
+- Used for log monitoring, downloads, video streaming, file based APIs.
+
+#----------------------------------------------------------------------------------------------------------------
+
+# FILE HANDLING MODES :-
+---------------------
+
+- Text Files  -->  r, w, a, r+, w+, a+
+- Binary Files  -->  rb, wb, ab, (rb+  OR  r+b) , (wb+  OR  w+b) , (ab+ OR a+b)
+
+- If we want to read the data  -->  The file must exist. If file not exist, 'FileNotFoundError'
+- If we want to write the data  -->  If file not exist, it will be created automatically....
+
+
+# BINARY FILE HANDLING :
+
+# JPG (Image) FILE HANDLING :-
+f1 = open("IMG.jpg","rb")
+
+# Reading the binary file
+# print(f1.read())   # b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\..............   (b'\ for binary)
+# This returns the data in console in Hexadecimal format. Understandable by Computer.
+
+# Save the 'f1' file in a variable after reading
+x = f1.read()
+
+f2 = open("IMG_NEW.jpg","wb")   # This will create New file if not exist.
+
+# Write the data from 'f1' to 'f2'
+f2.write(x)
+
+f1.close()
+f2.close()
+
+#=================================================================================================================
+
+# ZIP and UNZIP THE FILE :-
+------------------------
+
+# When we download files from Google Drive, it zip the files.
+# Why need to zip ?
+# Advantages:
+       Saves memory by reducing size.
+       Transfer the file fast.
+       Improve the performance of application.
+
+# In Python, 'zipfile' Module  -->  Inside that module there is 'ZipFile' class
+# By using 'ZipFile' class, we can zip OR unzip the file.
+
+
+# TYPES OF COMPRESSION :-
+
+1) ZIP_DEFLATED   -->  With Compression  -->  Best for Log files, CSV, Text files
+2) ZIP_STORED   -->  Without Compression  --> Stores files as it is. Faster, Occupy more space,  Already compressed files.
+
+ZIP_STORED - It is a default value for compression parameter.
+ZIP_DEFLATED - We use this value as compression parameter to make a zip file.
+
+/////////////////////////////////////////////////////////////
+
+# ZIPPING FILES :-
+
+# Module contains classes and variables.
+# zipfile - Module
+# ZipFile - Class
+# ZIP_DEFLATED -  Variable
+# ZIP_STORED - Variable
+
+
+print("==================================== ZIPPING ============================================")
+
+# CASE 1:
+# Create a normal text file with 200 lines. File size will be 4kb
+from zipfile import ZipFile, ZIP_DEFLATED,ZIP_STORED
+with open("abcd.txt","w") as f:
+    f.write("This is test file\n" * 200)
+
+with open("wxyz.txt","w") as f1:
+    f1.write("This is second text file\n" * 200)
+
+# CASE 2:
+# create a text file without compression using ZipFile class (compression parameter - ZIP_STORED)
+# This will create a zip folder
+# 'no_compressed.zip' - 4kb folder size containing file 'abcd.txt' - 4kb
+with ZipFile("no_compressed.zip","w",compression=ZIP_STORED) as f:
+    f.write("abcd.txt")
+
+# CASE 3:
+# Create a text file with compression using ZipFile class (compression parameter - ZIP_DEFLATED)
+# This will create a zip folder
+# 'compressed.zip' - 1kb  containing files 'abcd.txt' - 4kb and 'wxyz.txt' - 6kb respectively.
+with ZipFile("compressed.zip","w",compression=ZIP_DEFLATED) as f:
+    f.write("abcd.txt")
+    f.write("wxyz.txt")
+
+print("==================================== UNZIPPING ============================================")
+
+# UNZIPPING :-
+
+# We'll use extractall() method to unzip the zip folder.
+# This folder will contain all the files of zip folder.
+
+with ZipFile("compressed.zip", "r") as unzip:
+    print(unzip.namelist())   # ['abcd.txt', 'wxyz.txt']
+    unzip.extractall("Unzipped_Folder")
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+#=================================================================================================================
+#=================================================================================================================
+
+# WORKING WITH DIRECTORIES or FOLDERS
+
+- OS Module is used to work with directories.
+- OS Module is like a Python's control panel. It is Python's built-in module.
+
+/////////////////////////////////////////////////////////////
+# WORKING WITH DIRECTORIES / FOLDERS
+
+import os
+
+with open("pqrs.txt","w") as f:
+    f.write("Good Morning...\n" * 15)
+
+print(os.getcwd())   # returns current working directory.
+# C:\Users\Admin\PycharmProjects\PythonProject\SDET_Python_Selenium\16_FileHandling_Part_02\Working_With_Directories
+
+print(os.path.dirname(os.getcwd()))   # returns the parent of current working directory.
+# C:\Users\Admin\PycharmProjects\PythonProject\SDET_Python_Selenium\16_FileHandling_Part_02
+
+# Create a subdirectory inside current directory. Named 'Child_Directory'
+# os.mkdir("Child_Directory")  # Create a subdirectory
+
+# Create multiple directories.
+# os.makedirs("Child1/Child2/Child3")   # Create nested directories (Child1 > Child2 > Child3)
+
+# Remove single directory
+# os.rmdir("Child1/Child2/Child3")   # Child3 - directory removed
+
+# Remove multiple directories.
+# os.removedirs("Child1/Child2")  # child2 and Child3 - directories removed
+
+"""
+# To join one or more path. OR  to append a file to the path.
+- The os.path.join() method is a function in the os module that joins one or more path components intelligently.
+- It constructs a full path by concatenating various components while automatically inserting the appropriate
+  path separator (/ for Unix-based systems and \ for Windows).
+
+- For more info about 'os.path.join()' method -
+  https://www.geeksforgeeks.org/python-os-path-join-method
+
+"""
+path = os.getcwd()
+filepath = os.path.join(path,"pqrs.txt")
+print(filepath)
+# C:\Users\Admin\PycharmProjects\PythonProject\SDET_Python_Selenium\16_FileHandling_Part_02\Working_With_Directories\pqrs.txt
+
+# Remove a file from the directory.
+os.remove(filepath)   # 'pqrs.txt' file removed from directory
+
+
+# Rename the name of directory
+# os.rename("Child_Directory","Renamed_Directory")
+
+print("============================ Contents of child working directory ===============================")
+# Get the content from the current child directory
+# listdir(path) - Returns content of directory as list but not the contents of subdirectory.
+print(os.listdir(os.getcwd()))  # ['Renamed_Directory', 'WorkingWithDirectories.py']
+
+
+"""
+# How to change the Current Working Directory to the specific path or  specific directory ?
+
+os.chdir() method :-
+
+- os.chdir() method in Python is used to change the current working directory to the specified path.
+  This function is part of the os module, which provides functionalities to interact with the operating system.
+
+"""
+
+# Change the current working directory to another directory.
+print(os.getcwd())
+# C:\Users\Admin\PycharmProjects\PythonProject\SDET_Python_Selenium\16_FileHandling_Part_02\Working_With_Directories
+
+# Change directory to '16_FileHandling_Part_02'. Which is parent directory.
+os.chdir(os.path.dirname(os.getcwd()))
+# print(os.getcwd())  # Now changed to new directory.
+
+print("============================ Contents of parent working directory ===============================")
+# Get the content from the parent directory
+print(os.listdir(os.getcwd()))
+
+print("======================= Contents of parent working directory using dot (.) ========================")
+# Also dot (".") means current working dir
+# "." is same as [os.getcwd()]
+print(os.listdir("."))   # Returns content of directory as list but not the contents of subdirectory.
+
+print("==================================== walk() function ============================================")
+
+# walk() function :-
+# - It returns the contents of directories and subdirectories also.
+
+for root,dirs,files in os.walk("."):
+    print("Roots:",root,"Dirs:",dirs,"Files:",files)
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+#============================================================================================================
+
+
+# GETTING THE INFORMATION OF A FILE :-
 ------------------------------------
-- To close file automatically once perform operation we can go for context manager.
+
+////////////////////////////////////////////////////////////
+
+# GETTING FILE INFO :-
+
+import os
+import time
+
+with open("file1.txt","w") as f:
+    f.write("Getting file information...\n" * 15)
 
 
+info = os.stat("file1.txt")
+
+print(info.st_size)   # 435
+print(info.st_mtime)   # 1748893010.9766648
+print(info.st_atime)   # 1748893010.9766648
+print(info.st_ctime)   # 1748892851.5171266
+
+# mtime, atime, ctime are Unix Epoch Time (from 1 Jan 1970)
+# mtime --> modified time = last time file contents was modified.
+# atime --> access time = last time file opened.
+# ctime --> changed time = last time file inode was modified
+
+# We can convert Unix Epoch time to normal time
+print(time.ctime(info.st_mtime))   # Tue Jun  3 01:12:48 2025
+print(time.ctime(info.st_atime))   # Tue Jun  3 01:13:29 2025
+print(time.ctime(info.st_ctime))   # Tue Jun  3 01:04:11 2025
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+#==============================================================================================================
+
+
+# PICKLING (Serialization) and UNPICKLING (Deserialization) :-
+
+- Pickling is the process of serializing Python objects into a byte stream for storage and transferring.
+- Unpickling is the process of deserializing byte stream back into the original Python objects,
+  allowing for its structure and its data.
+
+
+
+           +-------------------+                                   +-------------------+
+           |                   |     PICKLING (Serialization)      | 01101010010100101 |
+           |    Python Obj1    | >--------> >---------> >--------> | 10110001000101011 |
+           |                   |                                   | 01110100101010010 |
+           |    Python Obj2    |                                   | 10101110001010111 |
+           |                   |                                   | 10010101100010010 |
+           |    Python Obj3    | <--------< <---------< <--------< | 01101010110111001 |
+           |                   |    UNPICKLING (Deserialization)   | 10011010101011100 |
+           +-------------------+                                   +-------------------+
+              PYTHON OBJECTS                                      PYTHON FILE (Byte Stream)
+
+
+
+# Why we need PICKLING and UNPICKLING ?
+
+- To save and load data           ---> Stores Python objects in a file and reuse them later.
+- To send data over networks      ---> Transfer objects between systems and applications.
+- For inter-process communication ---> Share data between different programs.
+- Cache data for faster access    ---> Save computation results and load them quickly.
+- Save Application/Game state     ---> Store user progress, settings, models.
+- Store complex objects in DB     ---> Save structured data in DB.
+
+Pickle Module :-
+--------------
+- Used in Serialization and Deserialization.
 
 
