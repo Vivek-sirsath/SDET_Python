@@ -3,7 +3,7 @@
 i = 1  # Initialization
 while i<=5 :  # Condition
    print(i)
-   i = i+1  # Increment
+   i = i+1  # Increment (i+=1)
 
 print("=============================")
 j = 6
