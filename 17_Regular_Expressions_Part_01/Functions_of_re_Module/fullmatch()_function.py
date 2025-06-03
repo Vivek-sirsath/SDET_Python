@@ -48,7 +48,7 @@ pattern = "[A-Z]{2}[0-9]{2}[A-Z]{2}[0-9]{4}"   # Using Character Classes
 obj2 = re.fullmatch(pattern,vehicle_number)
 
 if obj2:
-    print(obj2.group())
+    print(obj2.group())   # MH12AB5559
 else:
     print("Wrong vehicle number")
 
@@ -62,7 +62,7 @@ obj2 = re.fullmatch(pattern,vehicle_number)
 if obj2:
     print(obj2.group())
 else:
-    print("Wrong vehicle number")
+    print("Wrong vehicle number")    # Wrong vehicle number
 
 
 
