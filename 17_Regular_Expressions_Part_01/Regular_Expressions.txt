@@ -85,13 +85,21 @@ RegEx  are useful in -
 ==============================================================================================================
 
 
+1) match()
+- Checks if a string starts with a pattern. If found, returns a matching object, otherwise returns 'None'.
+- Matches only start of a string.
 
 
+2) fullmatch()
+- Checks if the entire string matches the pattern. Returns a match object if fully matched, otherwise returns 'None'.
+- Matches the entire string.
 
 
+3) search()
+- Finds the first occurrence of a pattern in a string. If found, returns a matching object otherwise returns 'None'.
 
-
-
+4) findall()
+- Finds all matches of a pattern in a string. Returns a list of matches, or an empty list if none are found.
 
 
 
