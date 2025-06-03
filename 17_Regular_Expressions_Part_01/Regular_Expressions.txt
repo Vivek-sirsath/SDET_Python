@@ -1,0 +1,99 @@
+REGULAR EXPRESSIONS IN PYTHON :
+------------------------------
+
+Regular expressions are declarative mechanisms for string following certain pattern.
+
+RegEx  are useful in -
+- Censoring a bad word in a chat application.
+- Validating vehicle registration number.
+- Validation frameworks.
+- Pattern matching applications.
+- Digital circuits etc.
+
+
+# 're'-module :
+  ------------
+- In Python, there is a module called 're'-module for working with RegEx.
+- 're' --> regular expression
+- We use Character_Classes and Quantifiers from 're-module'.
+
+
+# CHARACTER CLASSES :
+ -------------------
+- Use to search a group of characters.
+
+--------------------------------------------------------------------------------------------------------------
+       Predefined Character Classes                 Meaning
+--------------------------------------------------------------------------------------------------------------
+                    \s                        Space character
+                    \S                        Any character except space character
+                    \d                        Any digit from 0 to 9
+                    \D                        Any character except a digit
+                    \w                        Any word character [a-zA-Z0-9]
+                    \W                        Any character except word character (Spl. characters)
+                     .                        Any character incl. spl. character
+==============================================================================================================
+
+
+--------------------------------------------------------------------------------------------------------------
+         Another Character Classes                  Meaning
+--------------------------------------------------------------------------------------------------------------
+                  [abc]                      Either a or b or c
+                  [^abc]                     Except a and b and c
+                  [a-z]                      Any lowercase alphabet symbol
+                  [A-Z]                      Any uppercase alphabet symbol
+                  [a-zA-Z]                   Any alphabet symbol
+                  [0-9]                      Any digit from 0 to 9
+                  [a-zA-Z0-9]                Any alphanumeric character
+                  [^a-zA-Z0-9]               Except alphanumeric character (Spl. character)
+==============================================================================================================
+
+                X----------------X-------------------X--------------------X----------------X
+
+
+# QUANTIFIERS :
+ -------------
+- They specify number of occurrences of a match.
+
+--------------------------------------------------------------------------------------------------------------
+               Quantifiers                          Meaning
+--------------------------------------------------------------------------------------------------------------
+                    a                        Exactly one 'a'
+                    a+                       At least one 'a'
+                    a*                       Any number of 'a's including zero
+                    a?                       At most one 'a', (either zero or one)
+                    a{m}                     Exactly m number of 'a's
+                    a{m,n}                   Minimum m number of 'a's and maximum n number of 'a's
+==============================================================================================================
+
+                X----------------X-------------------X--------------------X----------------X
+
+# FUNCTIONS in re-MODULE :
+ -----------------------
+
+--------------------------------------------------------------------------------------------------------------
+        Function                              Purpose                                     Returns
+--------------------------------------------------------------------------------------------------------------
+        match()          Check if the pattern is at the START of  the string        Match object OR None
+        fullmatch()      Matches the ENTIRE string                                  Match object OR None
+        search()         Finds FIRST OCCURRENCE of pattern                          Match object OR None
+        findall()        Finds ALL OCCURRENCES                                      List of matches
+        finditer()       Finds ALL MATCHES WITH DETAILS                             Iterator of match objects
+        subs()           Replaces matches with a new string                         Modified string
+        subn()           Replace and COUNTS occurrences                             Tuple (New_String, count)
+        split()          Splits string based on patterns                            List of tokens
+==============================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
