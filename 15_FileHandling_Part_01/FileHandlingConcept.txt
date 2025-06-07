@@ -68,6 +68,8 @@ writable()
 
 # FILE HANDLING IN PYTHON
 
+# C O D E >>>
+
 f = open("abc.txt","w")
 print(f.name)  # abc.txt
 print(f.mode)   # w
@@ -78,6 +80,7 @@ print(f.closed)  # False
 f.close()
 
 print(f.closed)  # True
+
 
 
 #=================================================================================================================
@@ -91,6 +94,8 @@ writelines(list of lines)
 
 - When we open the file in writing mode 'w', the data will be overwritten.
 - Old data deleted and new data will be added in place of old data.
+
+# C O D E >>>
 
 # Write data to file (pqr.txt)
 
@@ -114,6 +119,8 @@ f.close()
 f = open("pqr.txt", "a")
 f.write("I am Senior Test Engineer")
 
+# <<< C O D E
+
 #=================================================================================================================
 
 # READ DATA FROM FILE
@@ -124,6 +131,8 @@ read(n)  -->  Read 'n' characters from the file.
 readline()  -->  Read single line from the file.
 readlines()  -->  Read all the lines as list.
 
+
+# C O D E >>>
 
 # Read data from file (abc.txt)
 
@@ -191,6 +200,8 @@ My name is Vivek
 
 f.close()
 
+# <<< C O D E
+
 
 
 # CONTEXT MANAGER or 'WITH' STATEMENT :
@@ -200,6 +211,9 @@ f.close()
 
 # WITH STATEMENT
 ----------------
+
+# C O D E >>>
+
 # f = open("abc.txt", "w") , is same as, below declaration where 'as f' is an alias.
 
 with open("abc.txt", "w") as f:
@@ -224,6 +238,8 @@ handling
 in
 Python
 """
+
+# <<< C O D E
 
 #=================================================================================================================
 
@@ -250,6 +266,8 @@ SYS Module :-
 Sys is like Python's Control Panel --> It helps Python understand its environments and control script execution.
 #----------------------------------------------------------------------------------------------------------------
 
+# C O D E >>>
+
 import os.path
 from pathlib import Path
 
@@ -259,6 +277,7 @@ print(os.path.isfile(filepath))    # True
 print(os.path.exists(filepath))    # True
 print(Path(filepath).exists())    # True
 
+# <<< C O D E
 
 #==================================================================================================================
 #============================================== END OF PART-1 =====================================================
@@ -289,6 +308,8 @@ tell() --> Return where the location or index of a cursor is.
 
 # BINARY FILE HANDLING :
 
+# C O D E >>>
+
 # JPG (Image) FILE HANDLING :-
 f1 = open("IMG.jpg","rb")
 
@@ -306,6 +327,8 @@ f2.write(x)
 
 f1.close()
 f2.close()
+
+# <<< C O D E
 
 #=================================================================================================================
 
@@ -331,7 +354,7 @@ f2.close()
 ZIP_STORED - It is a default value for compression parameter.
 ZIP_DEFLATED - We use this value as compression parameter to make a zip file.
 
-/////////////////////////////////////////////////////////////
+# C O D E >>>
 
 # ZIPPING FILES :-
 
@@ -379,7 +402,7 @@ with ZipFile("compressed.zip", "r") as unzip:
     print(unzip.namelist())   # ['abcd.txt', 'wxyz.txt']
     unzip.extractall("Unzipped_Folder")
 
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+# <<< C O D E
 
 #=================================================================================================================
 #=================================================================================================================
@@ -389,7 +412,8 @@ with ZipFile("compressed.zip", "r") as unzip:
 - OS Module is used to work with directories.
 - OS Module is like a Python's control panel. It is Python's built-in module.
 
-/////////////////////////////////////////////////////////////
+# C O D E >>>
+
 # WORKING WITH DIRECTORIES / FOLDERS
 
 import os
@@ -478,7 +502,7 @@ print("==================================== walk() function ====================
 for root,dirs,files in os.walk("."):
     print("Roots:",root,"Dirs:",dirs,"Files:",files)
 
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+# <<< C O D E
 
 #============================================================================================================
 
@@ -486,7 +510,7 @@ for root,dirs,files in os.walk("."):
 # GETTING THE INFORMATION OF A FILE :-
 ------------------------------------
 
-////////////////////////////////////////////////////////////
+# C O D E >>>
 
 # GETTING FILE INFO :-
 
@@ -514,7 +538,7 @@ print(time.ctime(info.st_mtime))   # Tue Jun  3 01:12:48 2025
 print(time.ctime(info.st_atime))   # Tue Jun  3 01:13:29 2025
 print(time.ctime(info.st_ctime))   # Tue Jun  3 01:04:11 2025
 
-\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+# <<< C O D E
 
 #==============================================================================================================
 
@@ -553,4 +577,31 @@ Pickle Module :-
 --------------
 - Used in Serialization and Deserialization.
 
+# C O D E >>>
 
+# PICKLING (Serialization) and UNPICKLING (Deserialization)
+import pickle
+
+# Object
+data = {
+    "name":"Alice",
+    "age":"25",
+    "city":"New York"
+}                           # Dictionary data structure (k:v) pairs
+
+
+# PICKLING (Serialization)
+with open("data.pkl","wb") as f:
+    pickle.dump(data, f)
+print("Data has been pickled and saved to 'data.pkl' file")
+
+
+# UNPICKLING (Deserialization)
+with open("data.pkl","rb") as f:
+    returned_obj = pickle.load(f)
+print("Data unpickled in return: ", returned_obj)
+
+# Data unpickled in return:  {'name': 'Alice', 'age': '25', 'city': 'New York'}
+
+
+# <<< C O D E
