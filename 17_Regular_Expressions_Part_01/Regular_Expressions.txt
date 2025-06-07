@@ -3,7 +3,7 @@ REGULAR EXPRESSIONS IN PYTHON :
 
 Regular expressions are declarative mechanisms for string following certain pattern.
 
-RegEx  are useful in -
+RegEx are useful in -
 - Censoring a bad word in a chat application.
 - Validating vehicle registration number.
 - Validation frameworks.
@@ -74,7 +74,7 @@ RegEx  are useful in -
 --------------------------------------------------------------------------------------------------------------
         Function                              Purpose                                     Returns
 --------------------------------------------------------------------------------------------------------------
-        match()          Check if the pattern is at the START of  the string        Match object OR None
+        match()          Check if the pattern is at the START of the string         Match object OR None
         fullmatch()      Matches the ENTIRE string                                  Match object OR None
         search()         Finds FIRST OCCURRENCE of pattern                          Match object OR None
         findall()        Finds ALL OCCURRENCES                                      List of matches
@@ -101,7 +101,40 @@ RegEx  are useful in -
 4) findall()
 - Finds all matches of a pattern in a string. Returns a list of matches, or an empty list if none are found.
 
+5) finditer()
+- Returns match details of --> Matching Objects, start() index, end() index
+
+6) sub()
+- Replaces all the occurrences of a pattern in a string or text and returns a new text.
+- Censoring a bad word in an application or chats.
+- Masking the credit card numbers.
+
+7) subn()
+- Same as sub() but it returns a tuple consist of 'Modified string' and  'No. of replacements'
+  (a,b)
+  a = Modified string
+  b = Number of replacements made.
+
+8) split()
+- This function splits the string and returns the list of tokens (words).
+
+                X----------------X-------------------X--------------------X----------------X
 
 
+# (caret) ^ and (dollar) $ symbols in regular expressions :
+ ---------------------------------------------------------
+- Checks the position of pattern in a string.
+- Checking means matching.
+
+^ --> match the start of the string.
+$ --> Match the end of the string.
+
+
+                X----------------X-------------------X--------------------X----------------X
+
+# WEB SCRAPPING :-
+ --------------
+ - The process of collecting or extracting information from web pages is called Web Scrapping.
+ - In web scrapping, we can use regular expressions to match our required patterns.
 
 
