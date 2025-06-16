@@ -1,12 +1,12 @@
 # 1) match()
 
-# - Checks if a string starts with a pattern. Returns a match object if found, otherwise None.
+# - Checks if a string starts with a pattern. Returns a matching object if found, otherwise None.
 # - Matches only start of a string.
 
 print("======== Check if a filename starts with a letter (Either lowercase OR uppercase) ========")
 import re
 
-# Case 1
+# Case 1 (Valid Filename)
 
 filename = "Report2025.pdf"
 pattern = "[a-zA-Z]"
@@ -19,7 +19,7 @@ else:
 
 
 
-# Case 2
+# Case 2 (Invalid Filename)
 
 filename = "1Report2025.pdf"
 pattern = "[a-zA-Z]"
@@ -34,7 +34,7 @@ else:
 
 print("============ Check if a username starts with a character ============")
 
-# Case 1
+# Case 1 (Valid Username)
 
 username = "akg4512"
 pattern = "[a-zA-Z]"
@@ -43,7 +43,7 @@ print(matchObj.group())  # a
 
 
 
-# Case 2
+# Case 2 (Invalid Username)
 
 username = "1akg4512"
 pattern = "[a-zA-Z]"
