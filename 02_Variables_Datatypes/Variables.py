@@ -20,8 +20,8 @@ print(p)  # 100
 print(q)  # 100
 
 a,b = 5,10 # a and b redefined
-print(a)
-print(b)
+print(a)  # 5
+print(b)  # 10
 
 # 1st way :-
 # Swapping data using + and - operator
@@ -30,6 +30,7 @@ b = a-b   # 15-10=5
 a = a-b   # 15-5=10
 print(a)
 print(b)
+
 # 2nd Way :-
 # Swapping data using * and // operator
 a = a*b
@@ -37,6 +38,14 @@ b = a//b
 a = a//b
 print(a)
 print(b)
+
+# 3rd Way :-
+m = 1
+n = 2
+print("Before swapping :", m ,n)
+
+n,m = m,n
+print("After swapping :", m ,n)
 
 ################################################################
 # del Keyword :-
