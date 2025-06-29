@@ -1,5 +1,4 @@
 a = 5
-
 a += 5
 print("By Addition Assignment += :" , a) # 10
 
@@ -9,7 +8,6 @@ print("By Subtraction Assignment -= :" , a) # 7
 print("=======================================")
 
 b = 15
-
 b *= 2
 print("By Multiplication Assignment *= :" , b) # 30
 
@@ -19,20 +17,20 @@ print("By Division Assignment /= :" , b) # 7.5  (Returns quotient) (Always retur
 print("=======================================")
 
 c = 25
-
 c %= 3
 print("By Modulus Assignment %= :" , c) # 1   (Returns reminder)
 
 c = 20
 c //= 6
-print("By Floor Division Assignment //= :" , c) # 3   (Returns quotient)
+print("By Floor Division Assignment //= :" , c) # 3   (Returns quotient)(Nearest round up value)
 
 x = 10
 x //= 2
 print("By Floor Division Assignment //= :" , x)  # 5  (Returns quotient)
 
-c **= 4
-print("By Exponentiation Assignment **= :" , c)  # 3*3*3*3 = 81
+m = 3
+m **= 4
+print("By Exponentiation Assignment **= :" , m)  # 3*3*3*3 = 81
 
 print("=======================================")
 
