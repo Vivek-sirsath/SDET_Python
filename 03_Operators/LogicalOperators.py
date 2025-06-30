@@ -44,6 +44,7 @@ print(0 and 300)  # 0
 print(50 and 0)  # 0
 
 print("=========================================")
+
 print("Using Non-boolean values using OR operator")
 # ii) x or y --> if x is FALSE and y is TRUE then result is y
                # if x is FALSE and y is FALSE then result is y
@@ -51,10 +52,10 @@ print("Using Non-boolean values using OR operator")
 
 print("Apple" or "Banana")   # Apple
 print("" or "Motorcycle")   # Motorcycle
-print("Xenomorph" or "")  # Xenomorph
+print("Xenomorph" or "")   # Xenomorph
 print(70 or 80)  # 70
 print(0 or 60)  # 60
-print(90 or 0)  # 70
+print(90 or 0)  # 90
 
 print("=========================================")
 print("Using Using Not operator")
