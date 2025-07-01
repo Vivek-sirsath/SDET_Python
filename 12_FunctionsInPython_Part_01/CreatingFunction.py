@@ -68,7 +68,7 @@ def myfunc():
 t = myfunc()
 print(myfunc())  # ('Hello Stacy', 'Hello John', 'Hello Tom')
 
-# return in the form of tuple, further if we want the values, we can do it by tuple unpacking.
+# return in the form of tuple, further if we want the values separately, we can do it by tuple unpacking.
 a,b,c = t   # Tuple Unpacking
 print(a)
 print(b)
