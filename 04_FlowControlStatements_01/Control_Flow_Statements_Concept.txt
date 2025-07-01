@@ -124,6 +124,13 @@ range(stop)  --->  form 1
 range(start, stop)  --->  form 2 (Mostly used)
 range([start], stop, [step])  --->  form 3 (Mostly used)
 
+
+#    print(list(range(5,10)))
+#                    /   \
+#                   /     \
+#           Inclusive     Exclusive
+
+
 e.g.
     range(100,200)  --->  101,102,103......199
 
