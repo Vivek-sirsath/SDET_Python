@@ -26,13 +26,14 @@ Multiplication     *
 Division           /
 Floor Division     //
 Modulo Division    %
-Exponent Operator or Power Operator   **
+Exponent Operator  **  (Power Operator --> a^n)
 -----------------------------------------------------------------
 
 Division        -  /   ---> Returns float value (Returns quotient)
 Modulo Division -  %   ---> Returns reminder
-Floor Division  -  //  ---> Round up the result to the nearest whole number. Trim the fraction part.
+Floor Division  -  //  ---> Returns the quotient. Round up the quotient to the nearest whole number. Trim the fraction part.
 
+In floor division,
           if both values are int ---> Returns int
           if at least one value is float ---> Returns float
 
@@ -53,10 +54,10 @@ Floor Division  -  //  ---> Round up the result to the nearest whole number. Tri
 # True --> if all comparisons are true.
 # False --> if at least one comparison is false.
 
+print(10<20<30<40<50)   ----> True
 print(10<20<30<40>50)   ---->  False
 print(10==20==30==40!=50)    ---->  False
 
-print(10<20<30<40<50)    ---->  True
 ======================================================================================================================
 
 4) Logical Operators
@@ -115,9 +116,13 @@ print(10<20<30<40<50)    ---->  True
                      "selenium" and "" --> blank_space
 
             ii) x or y --> if x is TRUE then result is x else it is y.
-               e.g. 10 or 20  --> 20            0 or 20 --> 0             30 or 0 --> 0
-                     x or y --> y               x or y --> x               x or y --> y
-                  TRUE or TRUE --> TRUE     FALSE or TRUE --> FALSE     TRUE or FALSE --> FALSE
+               e.g. 10 or 20  --> 10            0 or 20 --> 20             30 or 0 --> 0
+                     x or y --> x               x or y --> y                x or y --> x
+                  TRUE or TRUE --> TRUE ,   FALSE or TRUE --> TRUE ,     TRUE or FALSE --> TRUE
+
+                    print("Apple" or "Banana")   # Apple
+                    print("" or "Motorcycle")   # Motorcycle
+                    print("Xenomorph" or "")   # Xenomorph
 
 
 ======================================================================================================================
@@ -137,7 +142,7 @@ Operator                  Name                    Example        Equivalent
    +=           Addition Assignment               x += 5          x = x + 5
    -=           Subtraction Assignment            x -= 3          x = x - 3
    *=           Multiplication Assignment         x *= 4          x = x * 4
-   /=           Division Assignment               x /= 2          x = x / 2   returns quotient
+   /=           Division Assignment               x /= 2          x = x / 2   returns quotient, float value
    %=           Modulus Assignment                x %= 7          x = x % 7   returns reminder
    //=          Floor Division Assignment         x //= 3         x = x // 3  returns quotient
    **=          Exponentiation Assignment         x **= 4         x = x ** 4  Returns power (x^4)
@@ -156,8 +161,15 @@ Operator                  Name                    Example        Equivalent
    ----------------------------------------
 
 # In a single line if we specify condition and action then it is Ternary Operator
-# a if condition TRUE returns a else b
-# a if condition FALSE returns b
+# if condition TRUE returns a else b
+# if condition FALSE returns b
+
+   e.g.
+        name = "Vivek" if 10>5 else "Ishita"
+        print(name)  # Vivek
+
+        name = "Vivek" if 10<5 else "Ishita"
+        print(name)  # Ishita
 
 ======================================================================================================================
 
@@ -183,7 +195,7 @@ Operator                  Name                    Example        Equivalent
 
 ======================================================================================================================
 
-Arithmetic operation sequence
+Arithmetic operation sequence (Rule of performing calculation)
 
 PEDMAS or PEMDAS
 
@@ -196,7 +208,7 @@ PEDMAS or PEMDAS
 +---------+------------------------------+---------------+
 |   3rd   |  Multiplication and Division |       *,/     |
 +---------+------------------------------+---------------+
-|   4th   |   Addition and Subtraction   |       +,-     |
+|   4th   |  Addition and Subtraction    |       +,-     |
 +---------+------------------------------+---------------+
 
 e.g.
@@ -218,7 +230,63 @@ e.g.
    res_2 = 35.5
 
 
+======================================================================================================================
 
+8) Slice Operator of String -  [Reference - 06_String_Part_01]
+  - Slice operator (:) is used to extract the data.
+
+# SLICE OPERATOR IN CASE OF STRING OF NUMBERS :
+# -------------------------------------------
+#        print(s[ 1:9 ])
+#                /   \
+#               /     \
+#       Exclusive     Inclusive
+
+
+# SLICE OPERATOR IN CASE OF LIST OF NUMBERS :
+# -----------------------------------------
+#   print(myList[ 2:6 ])
+#                /   \
+#               /     \
+#       Inclusive     Exclusive
+
+# RANGE :
+# -----
+#    print(list(range( 5,10 )))
+#                     /   \
+#                    /     \
+#            Inclusive     Exclusive
+
+
+
+s = "123456789"
+
+print(s[2:7])  # 34567    # Default step is 1
+print(s[1:9])  # 23456789
+print(s[1:9:2])  # 2468  # step is 2
+print(s[1:6:2])  # 246
+
+print("---------------------------------------------")
+
+print(s[0:9:2])   # 13579
+print(s[:5])   # 12345
+print(s[5:])   # 6789
+
+print("---------------------------------------------")
+
+print(s[::])  # 123456789
+print(s[4:100000:1])  # 56789
+print(s[100000:5:1])  # Blank_output
+
+
+print("=============== Range Function ===============")
+
+myList = [00,10,20,30,40,50,60,70,80,90]
+print(f"myList:", myList)   # myList: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+
+print(myList[2:6])   # [20, 30, 40, 50]
+print(myList[2:8:2])   # [20, 40, 60]
+print(myList[1:9:2])   # [10, 30, 50, 70]
 
 
 
