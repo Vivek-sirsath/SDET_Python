@@ -13,7 +13,7 @@ def sum(a,*b):
     print(a)
     print(b)
 
-sum(5)
+sum(5)   # Here a = 5 has taken.
 """
 Output:
 5
