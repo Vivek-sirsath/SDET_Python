@@ -20,6 +20,7 @@ sample_function("Ishita")
 sample_function("Deepika")
 
 # Here, 'name' is a parameter and 'Deepika' is an argument.
+# 'name is a Formal_Argument and 'Deepika' is an Actual_Argument.
 
 print("======================== TYPES OF FUNCTIONS ============================")
 """
@@ -35,7 +36,7 @@ def sunday():
     print("This is Sunday")
 
 sunday()  # This is Sunday
-print(sunday())   # This is Sunday # None
+print(sunday())   # This is Sunday # None [Because function do not returning any value]
 
 
 print("============== 2) Function with parameters and No return value ===============")
@@ -43,22 +44,22 @@ print("============== 2) Function with parameters and No return value ==========
 def firstDay(day):
     print(f"This is {day}")
 
-firstDay("Monday")  # This is Monday
-print(firstDay("Monday"))   # Here Monday is an argument. # This is Monday  # None
+# firstDay("Monday")  # This is Monday  # Here Monday is an actual argument.
+print(firstDay("Monday"))   # 1. This is Monday  # 2. None [Because function do not returning any value]
 
 print("============== 3) Function with parameters and return value ===============")
 
 def myfunc(name):
    return f"Hello {name}"
-myfunc("Stacy")
-print(myfunc("Stacy"))  # Hello Stacy # Printed only once.
+myfunc("Stacy")   # Not printed
+print(myfunc("Stacy"))  # Hello Stacy # Printed only once. [Used return keyword - returning value]
 
 print("============== 4) Function with No parameters and return value ===============")
 
 def myfunc():
    return f"Hello Stacy"
-myfunc()
-print(myfunc())  # Hello Stacy  # Printed only once.
+myfunc()   # Not printed
+print(myfunc())  # Hello Stacy  # Printed only once. [Function returning value]
 
 print("============== Function in Python can return any number of values ===============")
 # Those multiple values return in the form of tuple.
