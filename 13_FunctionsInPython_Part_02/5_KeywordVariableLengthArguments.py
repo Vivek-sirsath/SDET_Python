@@ -1,6 +1,7 @@
 # KEYWORD VARIABLE LENGTH ARGUMENTS :
 #   - Use (**kwargs) for Keyword Variable-Length Arguments.
 #   - Data stored in Dictionary {} in Key-Value pairs.
+#   - Returns data as Dictionary.
 
 def display(**kwargs):
     for k,v in kwargs.items():
