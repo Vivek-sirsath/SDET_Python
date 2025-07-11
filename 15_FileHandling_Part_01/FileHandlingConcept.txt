@@ -29,11 +29,11 @@ mode means : What type of operation ?
 
 # PROPERTIES OF FILE :
 ----------------------
-name
-mode
-closed
-readable()
-writable()
+name - What is the name of the file?
+mode - In which mode the file is opened?
+closed - Whether the file is closed or not?
+readable() - Is the file readable?
+writable() - Is the file writable?
 
 
 # MODE DESCRIPTION :-
@@ -45,9 +45,9 @@ writable()
         r                  rb           Read Only            File must exist, otherwise error thrown
                                                              'FileNotFound'.
   ----------------------------------------------------------------------------------------------------------------
-        w                  wb           Write Only           If file not exists, file will be created.
-                                                             If file exist, Python will truncate existing data
+        w                  wb           Write Only           If file exist, Python will truncate existing data
                                                              and overwrite the file.
+                                                             If file not exist, file will be created.
   ----------------------------------------------------------------------------------------------------------------
         a                  ab           Append               File is in write mode only, new data will be added
                                                              to the end of existing data. i.e. No overwriting
@@ -70,7 +70,7 @@ writable()
 
 # C O D E >>>
 
-f = open("abc.txt","w")
+f = open("abc.txt","w")  # Write mode
 print(f.name)  # abc.txt
 print(f.mode)   # w
 print(f.readable())  # False
@@ -283,6 +283,14 @@ print(Path(filepath).exists())    # True
 #============================================== END OF PART-1 =====================================================
 #==================================================================================================================
 
+In previous section we've seen,
+- Types of Files
+- Opening a file
+- Closing a file
+- Various properties of file (name, mode, closed, readable(), writable())
+- Different modes of file (r, w, a, r+, w+, a+)
+- Read data from a file
+- Write data to a file
 
 # seek() and tell() methods :
 ----------------------------
@@ -293,6 +301,16 @@ tell() --> Return where the location or index of a cursor is.
 - By default first character will be 0 as a index number.
 - To avoid redundant processing --> Efficiently reading large files
 - Used for log monitoring, downloads, video streaming, file based APIs.
+
+f = open("abc.txt","r")
+print(f.tell())   # 0  - Initial index position of cursor.
+print(f.read(3))   # Fil
+print(f.tell())   # 3  - Next index  position of cursor after reading data.
+
+f.seek(9)   # Seeking the cursor to the 9th index position.
+print(f.tell())   # 9  - Index position of the cursor after seeking.
+
+f.close()
 
 #----------------------------------------------------------------------------------------------------------------
 
@@ -318,12 +336,12 @@ f1 = open("IMG.jpg","rb")
 # This returns the data in console in Hexadecimal format. Understandable by Computer.
 
 # Save the 'f1' file in a variable after reading
-x = f1.read()
+bytes = f1.read()
 
 f2 = open("IMG_NEW.jpg","wb")   # This will create New file if not exist.
 
 # Write the data from 'f1' to 'f2'
-f2.write(x)
+f2.write(bytes)
 
 f1.close()
 f2.close()
@@ -371,7 +389,7 @@ print("==================================== ZIPPING ============================
 # Create a normal text file with 200 lines. File size will be 4kb
 from zipfile import ZipFile, ZIP_DEFLATED,ZIP_STORED
 with open("abcd.txt","w") as f:
-    f.write("This is test file\n" * 200)
+    f.write("This is first text file\n" * 200)
 
 with open("wxyz.txt","w") as f1:
     f1.write("This is second text file\n" * 200)
@@ -386,7 +404,7 @@ with ZipFile("no_compressed.zip","w",compression=ZIP_STORED) as f:
 # CASE 3:
 # Create a text file with compression using ZipFile class (compression parameter - ZIP_DEFLATED)
 # This will create a zip folder
-# 'compressed.zip' - 1kb  containing files 'abcd.txt' - 4kb and 'wxyz.txt' - 6kb respectively.
+# 'compressed.zip' - 1kb  containing both files 'abcd.txt' - 4kb and 'wxyz.txt' - 6kb respectively.
 with ZipFile("compressed.zip","w",compression=ZIP_DEFLATED) as f:
     f.write("abcd.txt")
     f.write("wxyz.txt")
@@ -524,11 +542,11 @@ with open("file1.txt","w") as f:
 info = os.stat("file1.txt")
 
 print(info.st_size)   # 435
-print(info.st_mtime)   # 1748893010.9766648
-print(info.st_atime)   # 1748893010.9766648
-print(info.st_ctime)   # 1748892851.5171266
+print(info.st_mtime)   # 1748893010.9766648 - Time shown in seconds
+print(info.st_atime)   # 1748893010.9766648 - Time shown in seconds
+print(info.st_ctime)   # 1748892851.5171266 - Time shown in seconds
 
-# mtime, atime, ctime are Unix Epoch Time (from 1 Jan 1970)
+# mtime, atime, ctime are following Unix Epoch Time (from 1 Jan 1970)
 # mtime --> modified time = last time file contents was modified.
 # atime --> access time = last time file opened.
 # ctime --> changed time = last time file inode was modified
