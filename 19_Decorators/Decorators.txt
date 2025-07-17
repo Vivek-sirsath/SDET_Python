@@ -1,0 +1,292 @@
+# DECORATORS :
+ ------------
+- In Python everything is treated as an object.
+
+Prerequisites to Understand Decorators.
+--------------------------------------
+- Function Aliasing --> Assigning same function to another function as alias.
+- Nested Function --> A function inside another function.
+- Function as a Return Value --> A function can return another function.
+- Function as an Argument --> Function can be passed as an argument to another function.
+
+#              X---------------X---------------X---------------X---------------X
+
+# C O D E  >>>
+
+# FUNCTION ALIASING - Assigning same function to another function as alias.
+ ------------------
+
+def f1():
+    print("This is Function Aliasing")
+
+f1()  # This is Function Aliasing
+
+f2 = f1 # Assigning one function to another function.
+
+f2()  # This is Function Aliasing
+
+#              X---------------X---------------X---------------X---------------X
+
+# NESTED FUNCTION - A function inside another function.
+-----------------
+# [NOTE: Generally, once inner function is defined inside outer function, We can not call
+#        inner function directly. Unless outer function returns inner function]
+
+
+def outer():
+    print("Outer function started...")
+    def inner():
+        print("Inner function started...")
+        print("Inner function executing...")
+        print("Inner function ended.")
+    print("Outer function calling inner function!")
+    inner()
+    print("Outer function ended.")
+# End of functions
+
+
+outer()  # Calling outer function.
+# inner()  # We can not call inner function directly.
+
+"""
+CONSOLE OUTPUT:
+--------------
+
+Outer function started...
+Outer function calling inner function!
+Inner function started...
+Inner function executing...
+Inner function ended.
+Outer function ended.
+"""
+
+#              X---------------X---------------X---------------X---------------X
+
+# FUNCTION AS RETURN VALUE - A function can return another function.
+--------------------------
+
+def outer():
+    print("Outer function started...")
+    def inner():
+        print("Inner function started...")
+    print("Outer function calling inner function!")
+    return inner
+
+
+f = outer()  # We've to assign the outer() to a variable
+f()
+
+"""
+Outer function started...
+Outer function calling inner function!
+Inner function started...
+"""
+
+#              X---------------X---------------X---------------X---------------X
+
+# FUNCTION AS AN ARGUMENT - Function can be passed as an argument to another function.
+-------------------------
+
+def notify(action):
+    action()
+def send_email():
+    print("Email sent successfully...")
+
+
+notify(send_email)  # Email sent successfully...
+
+# <<< C O D E
+
+#===============================================================
+
+These above concepts are the Pre-requisites to understand the Decorators in Python.
+
+
+DECORATORS :-
+----------
+It decorates and modifies original function.
+A decorator is a function that takes another(original) function as an input.
+It adds extra functionality and returns modified function without changing its original code.
+
+e.g.
+    It's like a beauty parlour, enhances the beauty of original face without changing the face.
+    Only enhances the beauty by applying make-up.
+
+
+EXAMPLE 1
+---------
+
+# C O D E >>>
+
+print("========= Normal behaviour of a function =========")
+
+def praise(name):
+    print("Hey",name,"you are so clever!")
+
+praise("Deepika")   # Hey Deepika you are so clever!
+praise("Vivek")   # Hey Vivek you are so clever!
+
+
+#---------------------------------------------------------
+# CALLING THE FUNCTION WITHOUT '@decor'
+#---------------------------------------------------------
+print("========= Decorator function with original function =========")
+
+def decor(func):
+    def inner(name):
+        if name == "Pooja":
+            print("Hello",name,"good evening!")
+        else:
+            func(name)
+    return inner        # Inner function is also called wrapper function
+
+def greet(name):
+    print("Hello",name,"good morning!")
+
+
+# Decorator function internally works as below
+decoratorFunction = decor(greet)
+
+decoratorFunction("Alisha")   # Hello Alisha good morning!
+decoratorFunction("Pooja")    # Hello Pooja good evening!
+
+#============================================================
+
+#---------------------------------------------------------
+# CALLING THE FUNCTION WITH '@decor'
+#---------------------------------------------------------
+print("========= Using @decor function =========")
+
+# Here decor is the decorator function
+def decor(func):
+    def inner(name):
+        if name == "Pooja":
+            print("Hello",name,"good evening!")
+        else:
+            func(name)
+    return inner        # Inner function is also called wrapper function
+
+@decor
+def greet(name):
+    print("Hello",name,"good morning!")
+
+
+greet("Tanya")   # Hello Tanya good morning!
+greet("Pooja")   # Hello Pooja good evening!
+
+# <<< C O D E
+
+#              X---------------X---------------X---------------X---------------X
+
+EXAMPLE 2
+---------
+
+# C O D E >>>
+
+#---------------------------------------------------------
+# CALLING THE FUNCTION WITHOUT '@decor'
+#---------------------------------------------------------
+
+print("========= Example of beauty parlour without '@decor' function =========")
+
+def makeup(func):
+    def inner(customer):
+        if customer == "Neha":
+            print("Hey",customer,"you are looking beautiful after make-up!")
+        else:
+            func(customer)
+    return inner          # Inner function is also called wrapper function
+
+
+def parlour(customer):
+    print("Hey",customer,"you are looking normal!")
+
+
+# Decorator function internally works as below
+afterMakeup = makeup(parlour)
+
+afterMakeup("Jessi")   # Hey Jessi you are looking normal!
+afterMakeup("Neha")   # Hey Neha you are looking beautiful after make-up!
+
+#=========================================================================
+
+#---------------------------------------------------------
+# CALLING THE FUNCTION WITH '@decor'
+#---------------------------------------------------------
+
+print("========= Using @decor function =========")
+
+# Here makeup is the decorator function
+def makeup(func):
+    def inner(customer):
+        if customer == "Neha":
+            print("Hey",customer,"you are looking beautiful after make-up!")
+        else:
+            func(customer)
+    return inner          # Inner function is also called wrapper function
+
+@makeup
+def parlour(customer):
+    print("Hey",customer,"you are looking normal!")
+
+
+parlour("Pooja")   # Hey Pooja you are looking normal!
+parlour("Neha")    # Hey Neha you are looking beautiful after make-up!
+
+# <<< C O D E
+
+#              X---------------X---------------X---------------X---------------X
+
+EXAMPLE 3
+---------
+
+# C O D E >>>
+
+print("========= Normal behaviour of a function =========")
+
+def division(a,b):
+    print(a/b)
+
+division(10,20)   # 0.5
+# division(10,0)   # ZeroDivisionError: division by zero
+
+
+print("========= Using decorator function '@decorator' =========")
+
+# Instead of x,y we can use a,b
+def smart_division(func):
+    def wrapper(x,y):
+        if y == 0:
+            print("Can not divide by zero")
+        else:
+            func(x,y)
+    return wrapper
+
+@smart_division
+def division(a,b):
+    print(a/b)
+
+
+division(10,0)   # Can not divide by zero
+division(30,50)   # 0.6
+
+# <<< C O D E
+
+#              X---------------X---------------X---------------X---------------X
+
+
+-----------------------------------------------
+DECORATOR CHAINING
+-----------------------------------------------
+- Applying multiple decorators to the same function, where each decorator
+  enhances or modifies the function in some way.
+
+
+
+
+
+
+
+
+
+
