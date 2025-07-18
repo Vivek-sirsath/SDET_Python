@@ -1,0 +1,62 @@
+Generators :-
+----------
+
+# A generator in Python is a special type of function that produces one value at a time, on demand,
+  rather than returning all values at once.
+
+- Any code / any application if runs it should consume less memory and more fast in performance.
+
+# Example of rice bag consumption.
+If we require,
+      1 rice bag --> 1 month
+      12 rice bags --> 12 months.
+
+If we buy 12 rice bags for a year in 1 month,
+      --> Need to Store
+      --> need to secure that rice from insects
+
+If we buy 1 rice bag per 1 month for a year,
+      --> No need to store
+      --> no need to secure from insect
+
+# Buying 1 rice bag per month is like generating the values on demand --> Its like generator.
+# Generator --> On demand it'll generate the items. Like electricity generator.
+
+
+==========================================================================================
+
+If we store items in list, it will occupy some memory.
+     list = [1,2,3,4]
+If we store million items in list it will occupy lots of memory.
+     list = [1,2,3,4,5,6,.............]
+
+# Resulting in poor performance.
+==========================================================================================
+
+KEY FEATURES OF GENERATORS :
+--------------------------
+- Generator uses 'yield' keyword to return a value and save its state.
+  i.e. generators 'remembers' where it left off (using a special state machine) between
+  successive calls, making it memory efficient.
+
+- Only the current value (and its state) kept in memory, not the whole list of values.
+  It returns a generator object, which can be iterated using 'for loop' OR next().
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
