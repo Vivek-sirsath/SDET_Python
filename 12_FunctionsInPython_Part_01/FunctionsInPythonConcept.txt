@@ -37,7 +37,7 @@ def function(inputs or parameters):
         statement 2
         return result
 
-NOTE: inputs or parameters, return keyword are optional.
+[NOTE: inputs or parameters, return keyword are optional.]
 
 Parameters --> Inputs to the function
 Arguments --> Actual values passed to input during function call. e.g. "Vivek"
@@ -59,8 +59,9 @@ sample_function("Deepika")
 
 #=======================================================================================
 
+# C O D E >>>
+
 # FUNCTION WITHOUT PARAMETERS
------------------------------
 
 def sample_function():
     print("Hello Python")
@@ -69,11 +70,10 @@ def sample_function():
 
 sample_function()
 sample_function()
-# These functions will print the statements multiple times.
+# These functions will print multiple times
 # We can call the function multiple times.
 
 # FUNCTION WITH PARAMETERS
---------------------------
 
 def sample_function(name):
     print(f"Hello {name}")
@@ -106,22 +106,22 @@ print("============== 2) Function with parameters and No return value ==========
 def firstDay(day):
     print(f"This is {day}")
 
-firstDay("Monday")  # This is Monday
-print(firstDay("Monday"))   # Here Monday is an argument. # This is Monday  # None
+# firstDay("Monday")  # This is Monday  # Here Monday is an actual argument.
+print(firstDay("Monday"))   # 1. This is Monday  # 2. None [Function not returning any value]
 
 print("============== 3) Function with parameters and return value ===============")
 
 def myfunc(name):
    return f"Hello {name}"
 myfunc("Stacy")
-print(myfunc("Stacy"))  # Hello Stacy # Printed only once.
+print(myfunc("Stacy"))  # Hello Stacy # Printed only once. [Used return keyword - returning value]
 
 print("============== 4) Function with No parameters and return value ===============")
 
 def myfunc():
    return f"Hello Stacy"
 myfunc()
-print(myfunc())  # Hello Stacy  # Printed only once.
+print(myfunc())  # Hello Stacy  # Printed only once. [Function returning value]
 
 print("============== Function in Python can return any number of values ===============")
 # Those multiple values return in the form of tuple.
@@ -131,11 +131,13 @@ def myfunc():
 t = myfunc()
 print(myfunc())  # ('Hello Stacy', 'Hello John', 'Hello Tom')
 
-# return in the form of tuple, further if we want the values, we can do it by tuple unpacking.
+# return in the form of tuple, further if we want the values separately, we can do it by tuple unpacking.
 a,b,c = t   # Tuple Unpacking
 print(a)
 print(b)
 print(c)
+
+# <<< C O D E
 
 #==================================================================================================================
 #============================================== END OF PART-1 =====================================================
@@ -222,9 +224,11 @@ greet(name="Emily",msg="I'm busy, will call you back...!")  # Hello Emily I'm bu
 
 4) VARIABLE LENGTH ARGUMENTS (Count of Arguments) :
    ----------------------------------------------
-   - If we dont know the count of arguments.
+   - Here we dont know the count of arguments.
    - Length of parameters is not fixed. We can pass any number of arguments (even zero) using '*' as prefix.
    - Values are stored as Tuple.
+   - Sometimes we can use Positional with variable length arguments.
+   - After variable length argument, there must be keyword argument.
 
 
 def order_pizza(size,*toppings):
@@ -335,6 +339,8 @@ TYPES OF FUNCTIONS :
 
 1) FIRST ORDER FUNCTION :
    ---------------------
+   - A simple function is a First Order Function, without a function as an argument,
+     just containing simple data.
    - Do not take any other function as an argument.
    - Do not return a function as a result.
    - Only operates on basic data types.
@@ -353,6 +359,8 @@ div(10.5,20.5)  # 0.5121951219512195
    - Returns a function as its result.
 
 
+# EXAMPLE 1 :-
+
 def apply_function(func,value):
     return func(value)
 def square(num):
@@ -362,10 +370,30 @@ def square(num):
 
 print(apply_function(square,3))  # 9
 
+print("=======================================================================")
+
+# EXAMPLE 2 :-
+
+def areaOfCircle(func,radius):
+    return func(radius)
+def squareOfRadius(radius):
+    return 3.14*radius**2
+
+print(areaOfCircle(squareOfRadius,5))  # 78.5
+
 
 3) FIRST-CLASS FUNCTION :
    --------------------
    - When we assign a function to another function then that another function is called First Class Function.
+
+def greet(name):
+    return f"Hello, {name}!"
+
+# We re now assigning one function to another function
+
+new_greet = greet
+
+print(new_greet("Vivek"))  # Hello, Vivek!
 
 #==============================================================================================================
 
@@ -381,7 +409,10 @@ print(apply_function(square,3))  # 9
 ---------------------------------
 
 1) Global Variable :
-   declared outside of function and accessible within all function in a same module.
+   - declared outside of function and accessible within all function in a same module.
+   - Global variable can be accessible within all the functions in the same package.
+   - Global variables are class/module level variables. But we can make any variable
+     as global variable inside a method by using 'global' keyword in front of it.
 
 2) Local Variable :
    declared inside of function and accessible only within that function.
@@ -413,17 +444,20 @@ company_address()  # Address: Microsoft , Pune
 
 
 # LAMBDA FUNCTION or ANONYMOUS or NAMELESS FUNCTION :
---------------------------------------------
+---------------------------------------------------
 
 - We use lambda functions for instant use of function.
-- Only single time we can use Lambda function.
-- It returns the result automatically. Not like normal functions where we use 'return' keyword.
+- Its for one time usage. Only single time we can use Lambda function.
+- It returns the result automatically. Not like normal functions where we need to use 'return' keyword.
 - In Lambda function use of 'return' keyword is optional.
 - we've to use 'lambda' keyword.
 - Lambda functions don't have any name (Anonymous). While normal functions has a name.
+- If we create normal function we can call that any number of times. By calling that function by its name.
+- Lambda functions are used as arguments for HOFs i.e. map(), filter(0, reduce().
 
-SYNTAX
-------
+
+SYNTAX :-
+-------
        lambda arguments_list: expression
 
 --------------------------------------------------------------
@@ -485,10 +519,10 @@ print(s(60,120))  # 120
 
 filter() -
 --------
-- Filter values from the sequence based on condition.
+- Filter function filters values from the sequence based on condition.
 
-SYNTAX
-------
+SYNTAX :-
+-------
 
         filter(function,sequence)
 
@@ -498,7 +532,8 @@ SYNTAX
 
 l = [5,10,15,20,25,30]
 
-# Normal for loop
+# Normal for loop - Print even numbers
+
 for x in l:
     if x%2==0:
         print(x)  # 10 20 30
@@ -526,56 +561,12 @@ print(list(filter(lambda x:x%2!=0,l)))  # [5, 15, 25]
 
 print("=================== Filter Salary Using Lambda Function ====================")
 
+# Example of Data Mining
 # Filter employees with salary > 50000
+
 employees = [{'name':'Leonardo','salary':40000},{'name':'Stacy','salary':80000},{'name':'Larry','salary':60000}]
-print(list(filter(lambda emp:emp['salary']>50000, employees)))  # Example of Data Mining
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(list(filter(lambda emp:emp['salary']>50000, employees)))
 
 
 
