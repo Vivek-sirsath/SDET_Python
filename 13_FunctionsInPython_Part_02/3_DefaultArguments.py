@@ -16,11 +16,15 @@ greet(name="Emily",msg="I'm busy, will call you back...!")  # Hello Emily I'm bu
 
 
 
+print("===========================================================================================================")
 
+"""
+Payment Gateway App : Payment status checking
+Keep the default status as "Rejected"
+"""
 
+def paymentStatus(status = "Rejected"):
+    print("Payment Status: ", status)
 
-
-
-
-
+paymentStatus("Approved")    # Try with argument "Rejected"
 
