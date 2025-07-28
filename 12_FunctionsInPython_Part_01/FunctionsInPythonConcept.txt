@@ -447,11 +447,12 @@ company_address()  # Address: Microsoft , Pune
 ---------------------------------------------------
 
 - We use lambda functions for instant use of function.
-- Its for one time usage. Only single time we can use Lambda function.
+- It's for one time usage. Only single time we can use Lambda function.
 - It returns the result automatically. Not like normal functions where we need to use 'return' keyword.
 - In Lambda function use of 'return' keyword is optional.
-- we've to use 'lambda' keyword.
+- Instead of 'def' we've to use 'lambda' keyword.
 - Lambda functions don't have any name (Anonymous). While normal functions has a name.
+  Thus, we have to store the lambda function in a variable. To call as a function name.
 - If we create normal function we can call that any number of times. By calling that function by its name.
 - Lambda functions are used as arguments for HOFs i.e. map(), filter(0, reduce().
 
