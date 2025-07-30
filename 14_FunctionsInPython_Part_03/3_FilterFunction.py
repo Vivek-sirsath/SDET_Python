@@ -1,5 +1,7 @@
 # filter()
 
+# Print even numbers
+
 l = [5,10,15,20,25,30]
 
 # Normal for loop
@@ -30,9 +32,12 @@ print(list(filter(lambda x:x%2!=0,l)))  # [5, 15, 25]
 
 print("=================== Filter Salary Using Lambda Function ====================")
 
+# Example of Data Mining
 # Filter employees with salary > 50000
+
 employees = [{'name':'Leonardo','salary':40000},{'name':'Stacy','salary':80000},{'name':'Larry','salary':60000}]
-print(list(filter(lambda emp:emp['salary']>50000, employees)))  # Example of Data Mining
+
+print(list(filter(lambda emp:emp['salary']>50000, employees)))
 
 
 
