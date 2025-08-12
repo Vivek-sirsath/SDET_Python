@@ -1,6 +1,6 @@
 # DEFAULT ARGUMENTS :
 """
-- Assign default values to the parameters
+   - Assign default values to the parameters
    - If not provided values in function call, default values are considered.
    - After Default Arguments, we should not take Non Default Arguments in sequence. It will give syntax error.
    - Valid Order --> Positional > Keyword > Default
