@@ -6,6 +6,8 @@ while i<=5 :  # Condition
    i = i+1  # Increment (i+=1)
 
 print("=============================")
+
+# Print the numbers from 6 to 1
 j = 6
 while j >= 1 :
     print(j)
