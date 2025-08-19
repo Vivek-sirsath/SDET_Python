@@ -571,5 +571,3 @@ print(list(filter(lambda emp:emp['salary']>50000, employees)))
 
 
 
-
-
