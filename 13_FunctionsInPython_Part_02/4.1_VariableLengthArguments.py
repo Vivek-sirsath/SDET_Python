@@ -22,6 +22,7 @@ Output:
 
 print(type(sum(5)))  # <class 'NoneType'>
 
+sum(2,3,4,5)
 print(type(sum(3,4,5,6))) # # <class 'NoneType'>
 """
 3
