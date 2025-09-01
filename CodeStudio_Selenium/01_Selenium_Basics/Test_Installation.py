@@ -1,0 +1,12 @@
+
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+
+# Auto-manages the right ChromeDriver version
+service = Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=service)
+
+driver.get("https://www.google.co.in")
+
+driver.quit()
