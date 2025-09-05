@@ -1,10 +1,10 @@
 x = 10
 
 - x is a container in which we can store only single value of any data type.
+- Data structures can holds multiple values in a single container.
 
-- Data structures holds multiple values in a single container.
 - List is a group of individual objects as a single entity.
-  # # Elements enclosed inside [] separated by comma (,)
+  # Elements enclosed inside [] separated by comma (,)
   # Insertion order is preserved.
   # Duplicates are allowed.
   # Can contain Heterogeneous objects.
