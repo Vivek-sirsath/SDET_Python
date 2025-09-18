@@ -1,3 +1,5 @@
+# FUNCTIONS ON DICTIONARY
+
 d = {10: 'apple', 20: 'banana', 30: 'mango', 40: 'orange'}
 
 print("=============== len() ===================")
@@ -19,9 +21,13 @@ If the key is available, will return resp value.
 If the key is not available, will return specified Default_Value.
 """
 
+# d = {10: 'apple', 20: 'banana', 30: 'mango', 40: 'orange'}
+
 print(d.get(20,"lemon"))  # banana (Key is available)
 print(d.get(80,"lemon"))  # lemon (Key is NOT available)
 print(d.get(100,'chocolate'))  # chocolate (Key is NOT available)
+
+print(d)   # {10: 'apple', 20: 'banana', 30: 'mango', 40: 'orange'}
 
 print("=============== pop() ===================")
 print(d)  # {10: 'apple', 20: 'banana', 30: 'mango', 40: 'orange'}
@@ -48,25 +54,25 @@ values = d.values()
 print(values)  # dict_values(['apple', 'banana', 'mango', 'orange'])
 print(type(values))  # <class 'dict_values'>
 
-print(d.items())  # dict_items([(10, 'apple'), (20, 'banana')])  # As Tuple
+print(d.items())  # dict_items([(10, 'apple'), (20, 'banana')])  # Returns as a Tuple
 print(d)  # {10: 'apple', 20: 'banana'}
 
 print("=============== copy() ===================")
-
 # create duplicate independent object of Dictionary.
+
 d = {10: 'apple', 20: 'banana', 30: 'mango', 40: 'orange'}
 d1 = d.copy()
 print(d1)  # {10: 'apple', 20: 'banana', 30: 'mango', 40: 'orange'}
 
 print("=============== update() ===================")
 d.update({50: 'grapes', 60: 'cherry'})
-print(d)
+print(d)   # {10: 'apple', 20: 'banana', 30: 'mango', 40: 'orange', 50: 'grapes', 60: 'cherry'}
 
+print("=============== keys() ===================")
+print(d.keys())   # dict_keys([10, 20, 30, 40, 50, 60])
 
-
-
-
-
+print("=============== values() ===================")
+print(d.values())   # dict_values(['apple', 'banana', 'mango', 'orange', 'grapes', 'cherry'])
 
 
 
